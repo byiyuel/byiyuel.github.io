@@ -1,7 +1,7 @@
 const technologiesElement = document.getElementById("technologies");
 
 const technologies = [
-     {
+
     {
         url: "https://www.python.org/",
         name: "Python",
