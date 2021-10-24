@@ -8,11 +8,6 @@ const technologies = [
         icon: "py.svg",
     },
     {
-        url: "https://tr.wikipedia.org/wiki/C_Sharp",
-        name: "C#",
-        icon: "csharp.svg",
-    },
-    {
         url: "https://www.javascript.com/",
         name: "JavaScript",
         icon: "javascript.svg",
