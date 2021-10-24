@@ -38,6 +38,11 @@ const technologies = [
         icon: "pp.svg",
     },
     {
+        url: "https://www.adobe.com/tr/products/aftereffects.html",
+        name: "After Effects",
+        icon: "ae.svg",
+    },
+    {
         url: "https://www.getpaint.net/",
         name: "Paint.NET",
         icon: "pn.svg",
