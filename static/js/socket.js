@@ -42,10 +42,10 @@ lanyard.onmessage = ({ data }) => {
         }, parsedData.d.heartbeat_interval);
     } else if (parsedData.op == OPCODES.INFO) {
         const statusColors = {
-            online: "#2afa62",
+            online: "#3BA55D",
             offline: "#747F8D",
-            idle: "#eddf47",
-            dnd: "#ff3640",
+            idle: "#FAA81A",
+            dnd: "#ED4245",
         };
 
         if (parsedData.t == "INIT_STATE") {
