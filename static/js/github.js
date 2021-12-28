@@ -1,7 +1,7 @@
 const repos = document.getElementById("repos");
 
 async function getRepo(user) {
-    const result = await fetch(`https://api.github.com/users/${user}/repos`);
+    const result = await fetch(`https://api.github.com/users/byiyuel/repos`);
     let repos = await result.json();
 
     repos = filterRepos(repos);
