@@ -52,7 +52,7 @@ async function addRepos() {
 
         const repoDescription = document.createElement("p");
         repoDescription.innerText =
-            repo.description.length > 76
+            repo.descriptionlength > 76
                 ? `${repo.description.substring(0, 73)}...`
                 : repo.description;
 
