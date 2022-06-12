@@ -18,14 +18,24 @@ const technologies = [
         icon: "html.svg",
     },
     {
-        url: "https://www.mongodb.com/",
-        name: "MongoDB",
-        icon: "mongodb.svg",
+        url: "https://github.com/",
+        name: "GitHub",
+        icon: "github.svg",
+    },
+    {
+        url: "https://pages.github.com/",
+        name: "GitHub Pages",
+        icon: "githubpages.svg",
     },
     {
         url: "https://code.visualstudio.com/",
         name: "Visual Studio Code",
         icon: "vscode.svg",
+    },
+    {
+        url: "https://azure.microsoft.com/en-us/",
+        name: "Microsoft Azure",
+        icon: "microsoftazure.svg",
     },
     {
         url: "https://www.adobe.com/tr/products/photoshop.html",
