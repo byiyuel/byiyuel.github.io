@@ -4,7 +4,7 @@ html {
 }
 
 body {
-  background-color: #222331;
+  background-color: #223122;
   margin: 0;
   font-family: "Poppins", sans-serif;
 }
@@ -12,18 +12,18 @@ body {
 hr {
   width: 80%;
   outline: none;
-  border: 2px solid #353755;
+  border: 2px solid #365535;
 }
 
 .line {
   min-height: 6px;
-  background: #6854E3;
-  background: -webkit-gradient(linear, left top, right top, from(#6854E3), to(#5970f1));
-  background: linear-gradient(90deg, #6854E3 0%, #725dfd 100%);
+  background: #60e354;
+  background: -webkit-gradient(linear, left top, right top, from(#59e354), to(#59f17a));
+  background: linear-gradient(90deg, #71e354 0%, #39c934 100%);
 }
 
 .alt-footer {
-  background-color: #292b42;
+  background-color: #294229;
   padding: 10px;
   padding-left: 10%;
   padding-right: 10%;
@@ -32,8 +32,8 @@ hr {
 .alt-footer a {
   color: #fff;
   text-decoration: none;
-  background-image: -webkit-gradient(linear, left top, right top, from(#6854E3), to(#5970f1));
-  background-image: linear-gradient(90deg, #6854E3 0%, #5970f1 100%);
+  background-image: -webkit-gradient(linear, left top, right top, from(#54e35b), to(#59f159));
+  background-image: linear-gradient(90deg, #71e354 0%, #39c934 100%);
   background-position: bottom left;
   background-repeat: no-repeat;
   background-size: 0% 2px;
@@ -98,8 +98,8 @@ hr {
   transition: 250ms;
   color: #fff;
   text-decoration: none;
-  background-image: -webkit-gradient(linear, left top, right top, from(#6854E3), to(#5970f1));
-  background-image: linear-gradient(90deg, #6854E3 0%, #5970f1 100%);
+  background-image: -webkit-gradient(linear, left top, right top, from(#54e367), to(#59f193));
+  background-image: linear-gradient(90deg, #71e354 0%, #39c934 100%);
   background-position: bottom center;
   background-repeat: no-repeat;
   background-size: 0% 3px;
@@ -192,8 +192,8 @@ hr {
 }
 
 .flex-container .profile #details #tag {
-  background: -webkit-gradient(linear, left top, right top, from(#6854E3), to(#5970f1));
-  background: linear-gradient(90deg, #6854E3 0%, #5970f1 100%);
+  background: -webkit-gradient(linear, left top, right top, from(#65e354), to(#59f166));
+  background: linear-gradient(90deg, #71e354 0%, #39c934 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -214,8 +214,8 @@ hr {
 }
 
 .flex-container .about h1 span {
-  background: -webkit-gradient(linear, left top, right top, from(#6854E3), to(#5970f1));
-  background: linear-gradient(90deg, #6854E3 0%, #5970f1 100%);
+  background: -webkit-gradient(linear, left top, right top, from(#54e360), to(#59f172));
+  background: linear-gradient(90deg, #71e354 0%, #39c934 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -231,8 +231,8 @@ hr {
 .flex-container .about p a {
   color: #cbd6ec;
   text-decoration: none;
-  background-image: -webkit-gradient(linear, left top, right top, from(#6854E3), to(#5970f1));
-  background-image: linear-gradient(90deg, #6854E3 0%, #5970f1 100%);
+  background-image: -webkit-gradient(linear, left top, right top, from(#54e373), to(#59f161));
+  background-image: linear-gradient(90deg, #71e354 0%, #39c934 100%);
   background-position: bottom left;
   background-repeat: no-repeat;
   background-size: 30% 2px;
@@ -291,7 +291,7 @@ hr {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: #353755;
+  background-color: #3a5535;
   border-radius: 10px;
   margin: 5px;
   -webkit-box-shadow: 0px 10px 21px -12px rgba(0, 0, 0, 0.75);
@@ -316,8 +316,8 @@ hr {
 }
 
 #technologies .technology img {
-  background: -webkit-gradient(linear, left top, right top, from(#6854E3), to(#5970f1));
-  background: linear-gradient(90deg, #6854E3 0%, #5970f1 100%);
+  background: -webkit-gradient(linear, left top, right top, from(#54e367), to(#6bf159));
+  background: linear-gradient(90deg, #71e354 0%, #39c934 100%);
   margin: 0;
   padding: 10px;
   width: 32px;
@@ -334,8 +334,8 @@ hr {
   font-size: 26px;
   font-weight: 400;
   text-decoration: none;
-  background-image: -webkit-gradient(linear, left top, right top, from(#6854E3), to(#5970f1));
-  background-image: linear-gradient(90deg, #6854E3 0%, #5970f1 100%);
+  background-image: -webkit-gradient(linear, left top, right top, from(#59e354), to(#59f159));
+  background-image: linear-gradient(90deg, #71e354 0%, #39c934 100%);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: 0% 0%;
@@ -368,7 +368,7 @@ hr {
           flex: 1 1 25%;
   width: auto;
   margin: 10px;
-  background-color: #292b42;
+  background-color: #29422c;
   border-radius: 15px;
   height: auto;
   -webkit-transition: 250ms;
@@ -406,8 +406,8 @@ hr {
   color: #fff;
   font-size: 24px;
   text-decoration: none;
-  background-image: -webkit-gradient(linear, left top, right top, from(#6854E3), to(#5970f1));
-  background-image: linear-gradient(90deg, #6854E3 0%, #5970f1 100%);
+  background-image: -webkit-gradient(linear, left top, right top, from(#54e354), to(#5ef159));
+  background-image: linear-gradient(90deg, #71e354 0%, #39c934 100%);
   background-position: bottom left;
   background-repeat: no-repeat;
   background-size: 50% 3px;
@@ -505,7 +505,7 @@ hr {
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: #353755 #222331;
+  scrollbar-color: #355535 #223123;
 }
 
 *::-webkit-scrollbar {
@@ -513,13 +513,13 @@ hr {
 }
 
 *::-webkit-scrollbar-track {
-  background: #222331;
+  background: #223122;
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: #353755;
+  background-color: #355538;
   border-radius: 10px;
-  border: 3px solid #222331;
+  border: 3px solid #243122;
 }
 
 .container {
@@ -534,7 +534,7 @@ hr {
   user-select: none;
   color: #fff;
   width: 300px;
-  background-color: #1a1b24;
+  background-color: #1b241a;
   border-radius: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -550,8 +550,8 @@ hr {
 }
 
 .container input:checked ~ .checkmark {
-  background: -webkit-gradient(linear, left top, right top, from(#6854E3), to(#5970f1));
-  background: linear-gradient(90deg, #6854E3 0%, #5970f1 100%);
+  background: -webkit-gradient(linear, left top, right top, from(#54e373), to(#59f172));
+  background: linear-gradient(90deg, #71e354 0%, #39c934 100%);
 }
 
 .container input:checked ~ .checkmark:after {
@@ -564,13 +564,13 @@ hr {
   left: 3px;
   height: 19px;
   width: 19px;
-  background-color: #292a3b;
+  background-color: #2a3b29;
   border-radius: 8px;
   padding: 5px;
 }
 
 .checkmark:hover {
-  background-color: #2c2d41;
+  background-color: #2c412c;
 }
 
 .checkmark::after {
@@ -603,16 +603,16 @@ hr {
 }
 
 #perm-desc span {
-  background: -webkit-gradient(linear, left top, right top, from(#6854E3), to(#5970f1));
-  background: linear-gradient(90deg, #6854E3 0%, #5970f1 100%);
+  background: -webkit-gradient(linear, left top, right top, from(#60e354), to(#5ef159));
+  background: linear-gradient(90deg, #71e354 0%, #39c934 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: bold;
 }
 .desc span {
-  background: -webkit-gradient(linear, left top, right top, from(#6854E3), to(#5970f1));
-  background: linear-gradient(90deg, #6854E3 0%, #5970f1 100%);
+  background: -webkit-gradient(linear, left top, right top, from(#54e36c), to(#5ef159));
+  background: linear-gradient(90deg, #71e354 0%, #39c934 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

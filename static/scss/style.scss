@@ -2,8 +2,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap");
 
 // Colors
-$darkBlue: #222331;
-$lessDarkBlue: #353755;
+$darkBlue: #243122;
+$lessDarkBlue: #395535;
 $gradient: linear-gradient(
     90deg,
     rgba(215, 57, 196, 1) 0%,
@@ -48,12 +48,12 @@ hr {
 .line {
     min-height: 6px;
 
-    background: rgb(215, 57, 196);
+    background: rgb(62, 215, 57);
     background: $gradient;
 }
 
 .alt-footer {
-    background-color: #292b42;
+    background-color: #29422a;
     padding: 10px;
     padding-left: 10%;
     padding-right: 10%;
@@ -163,7 +163,7 @@ hr {
             width: 156px;
             height: 156px;
             margin: auto;
-            background-color: #ff3640;
+            background-color: #ff3636;
             border-radius: 30% 70% 70% 30%/30% 30% 70% 70%;
             box-shadow: 15px 15px 50px rgba(0, 0, 0, 0.2);
             animation: morphing 10s ease-in-out infinite;
@@ -345,7 +345,7 @@ hr {
         flex: 1 1 25%;
         width: auto;
         margin: 10px;
-        background-color: #292b42;
+        background-color: #2c4229;
         border-radius: 15px;
         height: auto;
         transition: 250ms;
@@ -471,7 +471,7 @@ hr {
     user-select: none;
     color: #fff;
     width: 300px;
-    background-color: #1a1b24;
+    background-color: #1a241a;
     border-radius: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -503,12 +503,12 @@ hr {
     left: 3px;
     height: 19px;
     width: 19px;
-    background-color: #292a3b;
+    background-color: #293b2a;
     border-radius: 8px;
     padding: 5px;
 
     &:hover {
-        background-color: #2c2d41;
+        background-color: #2c412d;
     }
 
     &::after {
