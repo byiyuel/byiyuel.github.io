@@ -1,12 +1,12 @@
-# Personal Website
+# Hakkımda
 
-My first working website about me. Also i stealed some css and html :)
+Hakkımda çalışan ilk web sitem. Ayrıca biraz kod çaldım :)
 
-## Customizing
+## Kişiselleştirme
 
-If you want to fork my website and add your discord profile, You can do this easily. Fork the website and open `./static/js/socket.js` file. Replace all `376091191621713940` with your Discord ID. Don't forget to join Lanyard server before doing this.
+Web sitemi kullanmak ve discord profilinizi eklemek istiyorsanız, bunu kolayca yapabilirsiniz. Web sitesini klonlayın ve `./static/js/socket.js` dosyasını açın. Tüm '376091191621713940'ları Discord ID'nizle değiştirin. Bunu yapmadan önce Lanyard sunucusuna katılmayı unutmayın.
 
-## Other
+## Diğer
 
--   Icons: [Simple Icons](https://simpleicons.org/)
--   Discord Status: [Lanyard](https://github.com/Phineas/lanyard)
+-   Simgeler: [Simple Icons](https://simpleicons.org/)
+-   Discord Durumu: [Lanyard](https://github.com/Phineas/lanyard)
