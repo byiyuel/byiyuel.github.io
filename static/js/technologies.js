@@ -13,9 +13,19 @@ const technologies = [
         icon: "javascript.svg",
     },
     {
+        url: "https://nodejs.org/en/",
+        name: "NodeJS",
+        icon: "nodejs.svg",
+    },
+    {
         url: "https://en.wikipedia.org/wiki/HTML",
         name: "HTML",
         icon: "html.svg",
+    },
+    {
+        url: "https://en.wikipedia.org/wiki/C_Sharp_(programming_language)",
+        name: "C#",
+        icon: "csharp.svg",
     },
     {
         url: "https://github.com/",
@@ -31,6 +41,21 @@ const technologies = [
         url: "https://code.visualstudio.com/",
         name: "Visual Studio Code",
         icon: "vscode.svg",
+    },
+    {
+        url: "https://visualstudio.microsoft.com/",
+        name: "Visual Studio",
+        icon: "visualstudio.svg",
+    },
+    {
+        url: "https://store.steampowered.com/app/682130",
+        name: "Discord Bot Maker",
+        icon: "discord.svg",
+    },
+    {
+        url: "https://notepad-plus-plus.org/",
+        name: "Notepad++",
+        icon: "notepadplusplus.svg",
     },
     {
         url: "https://azure.microsoft.com/en-us/",
@@ -56,11 +81,6 @@ const technologies = [
         url: "https://www.getpaint.net/",
         name: "Paint.NET",
         icon: "pn.svg",
-    },
-    {
-        url: "https://nodejs.org/en/",
-        name: "NodeJS",
-        icon: "nodejs.svg",
     },
 ];
 
