@@ -65,20 +65,19 @@ lanyard.onmessage = ({ data }) => {
             } if (a == 3){
             elements.durum.innerText ="Ne yapıyorum: Herhangi Bir Şey"
             } else if ( a == 2) {
-            elements.durum.innerText ="Ne yapıyorum: "+ user.activities[0].state
+            elements.durum.innerText ="Discord Durumum: "+ "\n"+ user.activities[0].state
             } else if (a == 0){
-            elements.durum.innerText ="Ne yapıyorum: "+ user.activities[0].state+"\n Ne dinliyorum:"
+            elements.durum.innerText ="Discord Durumum: "+ user.activities[0].state+"\n Ne dinliyorum:"
             
             }
-            if(user.listening_to_spotify== true){
-                
-                document.getElementById("spotify-artist").innerText = "\n"+ user.spotify.artist
-                document.getElementById("spotify-song").innerText = "\n"+ user.spotify.song +" dinliyor."
+            if(user.listening_to_spotify== true){ 
+                document.getElementById("spotify-artist").innerText = "\n"+ user.spotify.artist +" adlı müzisyenden"
+                document.getElementById("spotify-song").innerText = "\n"+ user.spotify.song +" adlı şarkıyı dinliyor"
                 document.getElementById("spotify-pic").src = user.spotify.album_art_url
                 document.getElementById("spotify-pic").style.visibility = "visible";
             }
             
-           else if(user.activities[1]){
+            else if(user.activities[1]){
             document.getElementById("avatar").style.cursor = "pointer"
             }
                 
