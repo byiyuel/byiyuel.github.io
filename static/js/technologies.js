@@ -1,87 +1,60 @@
 const technologiesElement = document.getElementById("technologies");
 
 const technologies = [
+  {
+    name: "Python",
+    icon: "./static/images/python.svg"
+  },
+  {
+    name: "JavaScript",
+    icon: "./static/images/javascript.svg"
+  },
+  {
+    name: "C#",
+    icon: "./static/images/csharp.svg"
+  },
+  {
+    name: "HTML",
+    icon: "./static/images/html.svg"
+  },
+  {
+    name: "CSS",
+    icon: "./static/images/css.svg"
+  },
+  {
+    name: "Node.js",
+    icon: "./static/images/nodejs.svg"
+  },
+  {
+    name: "SQL",
+    icon: "./static/images/sql.svg"
+  },
+  {
+    name: "Pandas",
+    icon: "./static/images/pandas.svg"
+  },
+  {
+    name: "NumPy",
+    icon: "./static/images/numpy.svg"
+  },
+  {
+    name: "Excel",
+    icon: "./static/images/excel.svg"
+  },
+  {
+    name: "SPSS",
+    icon: "./static/images/spss.svg"
+  },
+  {
+    name: "Git & GitHub",
+    icon: "./static/images/github.svg"
+  },
+  {
+    name: "VS Code",
+    icon: "./static/images/vscode.svg"
+  }
+];
 
-    {
-        url: "https://www.python.org/",
-        name: "Python",
-        icon: "py.svg",
-    },
-    {
-        url: "https://www.javascript.com/",
-        name: "JavaScript",
-        icon: "javascript.svg",
-    },
-    {
-        url: "https://nodejs.org/en/",
-        name: "NodeJS",
-        icon: "nodejs.svg",
-    },
-    {
-        url: "https://en.wikipedia.org/wiki/HTML",
-        name: "HTML",
-        icon: "html.svg",
-    },
-    {
-        url: "https://en.wikipedia.org/wiki/C_Sharp_(programming_language)",
-        name: "C#",
-        icon: "csharp.svg",
-    },
-    {
-        url: "https://github.com/",
-        name: "GitHub",
-        icon: "github.svg",
-    },
-    {
-        url: "https://pages.github.com/",
-        name: "GitHub Pages",
-        icon: "githubpages.svg",
-    },
-    {
-        url: "https://code.visualstudio.com/",
-        name: "Visual Studio Code",
-        icon: "vscode.svg",
-    },
-    {
-        url: "https://visualstudio.microsoft.com/",
-        name: "Visual Studio",
-        icon: "visualstudio.svg",
-    },
-    {
-        url: "https://store.steampowered.com/app/682130",
-        name: "Discord Bot Maker",
-        icon: "discord.svg",
-    },
-    {
-        url: "https://notepad-plus-plus.org/",
-        name: "Notepad++",
-        icon: "notepadplusplus.svg",
-    },
-    {
-        url: "https://azure.microsoft.com/en-us/",
-        name: "Microsoft Azure",
-        icon: "microsoftazure.svg",
-    },
-    {
-        url: "https://www.adobe.com/tr/products/photoshop.html",
-        name: "Photoshop",
-        icon: "ps.svg",
-    },
-    {
-        url: "https://www.adobe.com/tr/products/premiere.html",
-        name: "Premiere Pro",
-        icon: "pp.svg",
-    },
-    {
-        url: "https://www.adobe.com/tr/products/aftereffects.html",
-        name: "After Effects",
-        icon: "ae.svg",
-    },
-    {
-        url: "https://www.getpaint.net/",
-        name: "Paint.NET",
-        icon: "pn.svg",
-    },
 ];
 
 for (let technology of technologies) {
