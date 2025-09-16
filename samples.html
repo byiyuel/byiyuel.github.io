@@ -48,27 +48,22 @@
                 <p class="subtitle">Kod örnekleri, veri görselleştirmeleri ve teknik projelerim</p>
             
             <div id="work-samples">
-                <div class="sample-category">
-                    <h3>📊 Veri Görselleştirme</h3>
-                    <div class="sample-grid">
-                        <div class="sample-item">
-                            <div class="sample-preview">
-                                <div class="chart-placeholder">
-                                    <div class="chart-bar" style="height: 60%"></div>
-                                    <div class="chart-bar" style="height: 80%"></div>
-                                    <div class="chart-bar" style="height: 45%"></div>
-                                    <div class="chart-bar" style="height: 90%"></div>
-                                </div>
+                <div class="samples-grid">
+                    <div class="sample-card">
+                        <div class="sample-header">
+                            <div class="sample-icon">📊</div>
+                            <div class="sample-info">
+                                <h4>Kripto Para Analizi</h4>
+                                <p>Bitcoin ve altcoinlerin performans analizi</p>
                             </div>
-                            <h4>Kripto Para Performans Analizi</h4>
-                            <p>Bitcoin ve altcoinlerin aylık performans karşılaştırması</p>
-                            
-                            <div class="code-block">
-                                <div class="code-header">
-                                    <span class="code-lang">Python</span>
-                                    <span class="code-title">Performans Analizi</span>
-                                </div>
-                                <pre><code>import matplotlib.pyplot as plt
+                        </div>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Python</span>
+                                <button class="copy-btn" onclick="copyCode(this)">📋</button>
+                            </div>
+                            <pre><code class="language-python">import matplotlib.pyplot as plt
 import pandas as pd
 
 def plot_crypto_performance(data):
@@ -79,7 +74,8 @@ def plot_crypto_performance(data):
     bars = ax.bar(data['coin'], data['performance'])
     
     # Renkleri ayarla
-    colors = ['#10b981' if x > 0 else '#ef4444' for x in data['performance']]
+    colors = ['#10b981' if x > 0 else '#ef4444' 
+              for x in data['performance']]
     for bar, color in zip(bars, colors):
         bar.set_color(color)
     
@@ -90,32 +86,30 @@ def plot_crypto_performance(data):
     plt.xticks(rotation=45)
     plt.tight_layout()
     plt.show()</code></pre>
-                            </div>
-                            
-                            <div class="sample-tech">
-                                <span>Python</span>
-                                <span>Matplotlib</span>
-                                <span>Pandas</span>
+                        </div>
+                        
+                        <div class="sample-tech">
+                            <span>Python</span>
+                            <span>Matplotlib</span>
+                            <span>Pandas</span>
+                        </div>
+                    </div>
+                    
+                    <div class="sample-card">
+                        <div class="sample-header">
+                            <div class="sample-icon">🥧</div>
+                            <div class="sample-info">
+                                <h4>Portfolyo Dağılımı</h4>
+                                <p>Yatırım portföyünün sektörel dağılımı</p>
                             </div>
                         </div>
                         
-                        <div class="sample-item">
-                            <div class="sample-preview">
-                                <div class="chart-placeholder pie-chart">
-                                    <div class="pie-slice slice-1"></div>
-                                    <div class="pie-slice slice-2"></div>
-                                    <div class="pie-slice slice-3"></div>
-                                </div>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Python</span>
+                                <button class="copy-btn" onclick="copyCode(this)">📋</button>
                             </div>
-                            <h4>Portfolyo Dağılım Analizi</h4>
-                            <p>Yatırım portföyünün sektörel dağılımı</p>
-                            
-                            <div class="code-block">
-                                <div class="code-header">
-                                    <span class="code-lang">Python</span>
-                                    <span class="code-title">Pie Chart</span>
-                                </div>
-                                <pre><code>import matplotlib.pyplot as plt
+                            <pre><code class="language-python">import matplotlib.pyplot as plt
 import seaborn as sns
 
 def create_portfolio_pie(portfolio_data):
@@ -132,7 +126,8 @@ def create_portfolio_pie(portfolio_data):
     )
     
     # Stil ayarları
-    ax.set_title('Portföy Sektörel Dağılımı', fontsize=16, fontweight='bold')
+    ax.set_title('Portföy Sektörel Dağılımı', 
+                 fontsize=16, fontweight='bold')
     
     # Legend ekle
     ax.legend(wedges, portfolio_data['sectors'],
@@ -142,38 +137,31 @@ def create_portfolio_pie(portfolio_data):
     
     plt.tight_layout()
     plt.show()</code></pre>
-                            </div>
-                            
-                            <div class="sample-tech">
-                                <span>Python</span>
-                                <span>Seaborn</span>
-                                <span>Plotly</span>
-                            </div>
+                        </div>
+                        
+                        <div class="sample-tech">
+                            <span>Python</span>
+                            <span>Seaborn</span>
+                            <span>Plotly</span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="sample-category">
-                    <h3>🤖 Makine Öğrenmesi</h3>
-                    <div class="sample-grid">
-                        <div class="sample-item">
-                            <div class="sample-preview">
-                                <div class="ml-visualization">
-                                    <div class="ml-chart">
-                                        <div class="prediction-line"></div>
-                                        <div class="actual-points"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <h4>Fiyat Tahminleme Modeli</h4>
-                            <p>LSTM ile kripto para fiyat tahminleme</p>
-                            
-                            <div class="code-block">
-                                <div class="code-header">
-                                    <span class="code-lang">Python</span>
-                                    <span class="code-title">LSTM Model</span>
-                                </div>
-                                <pre><code>import tensorflow as tf
+                <div class="sample-card">
+                    <div class="sample-header">
+                        <div class="sample-icon">🤖</div>
+                        <div class="sample-info">
+                            <h4>LSTM Fiyat Tahmini</h4>
+                            <p>Kripto para fiyat tahminleme modeli</p>
+                        </div>
+                    </div>
+                    
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-lang">Python</span>
+                            <button class="copy-btn" onclick="copyCode(this)">📋</button>
+                        </div>
+                        <pre><code class="language-python">import tensorflow as tf
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import LSTM, Dense, Dropout
 import numpy as np
@@ -189,7 +177,8 @@ def create_lstm_model(input_shape):
         Dense(1)
     ])
     
-    model.compile(optimizer='adam', loss='mean_squared_error')
+    model.compile(optimizer='adam', 
+                  loss='mean_squared_error')
     return model
 
 def train_price_predictor(data):
@@ -208,27 +197,30 @@ def train_price_predictor(data):
                        verbose=1)
     
     return model, history</code></pre>
-                            </div>
-                            
-                            <div class="sample-tech">
-                                <span>TensorFlow</span>
-                                <span>LSTM</span>
-                                <span>Python</span>
-                            </div>
-                        </div>
+                    </div>
+                    
+                    <div class="sample-tech">
+                        <span>TensorFlow</span>
+                        <span>LSTM</span>
+                        <span>Python</span>
                     </div>
                 </div>
                 
-                <div class="sample-category">
-                    <h3>💻 Web Geliştirme</h3>
-                    <div class="code-samples">
-                        <div class="code-sample">
-                            <div class="code-header">
-                                <span class="code-lang">JavaScript</span>
-                                <span class="code-title">React Crypto Widget</span>
-                            </div>
-                            <div class="code-content">
-                                <pre><code>import React, { useState, useEffect } from 'react';
+                <div class="sample-card">
+                    <div class="sample-header">
+                        <div class="sample-icon">⚛️</div>
+                        <div class="sample-info">
+                            <h4>React Crypto Widget</h4>
+                            <p>Gerçek zamanlı kripto para widget'ı</p>
+                        </div>
+                    </div>
+                    
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-lang">JavaScript</span>
+                            <button class="copy-btn" onclick="copyCode(this)">📋</button>
+                        </div>
+                        <pre><code class="language-javascript">import React, { useState, useEffect } from 'react';
 
 const CryptoWidget = () => {
   const [prices, setPrices] = useState({});
@@ -270,17 +262,30 @@ const CryptoWidget = () => {
 };
 
 export default CryptoWidget;</code></pre>
-                            </div>
-                            <a href="https://github.com/byiyuel" class="code-link" target="_blank">GitHub'da Görüntüle →</a>
+                    </div>
+                    
+                    <div class="sample-tech">
+                        <span>React</span>
+                        <span>JavaScript</span>
+                        <span>API</span>
+                    </div>
+                </div>
+                
+                <div class="sample-card">
+                    <div class="sample-header">
+                        <div class="sample-icon">🐍</div>
+                        <div class="sample-info">
+                            <h4>Flask API</h4>
+                            <p>Kripto para analizi için REST API</p>
                         </div>
-                        
-                        <div class="code-sample">
-                            <div class="code-header">
-                                <span class="code-lang">Python</span>
-                                <span class="code-title">Flask API</span>
-                            </div>
-                            <div class="code-content">
-                                <pre><code>from flask import Flask, jsonify, request
+                    </div>
+                    
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-lang">Python</span>
+                            <button class="copy-btn" onclick="copyCode(this)">📋</button>
+                        </div>
+                        <pre><code class="language-python">from flask import Flask, jsonify, request
 from flask_cors import CORS
 import pandas as pd
 import numpy as np
@@ -311,7 +316,6 @@ def analyze_crypto():
 
 def perform_crypto_analysis(symbol):
     """Kripto para analizi gerçekleştirir"""
-    # Gerçek analiz kodu buraya gelecek
     return {
         'volatility': 0.25,
         'trend': 'bullish',
@@ -321,22 +325,30 @@ def perform_crypto_analysis(symbol):
 
 if __name__ == '__main__':
     app.run(debug=True)</code></pre>
-                            </div>
-                            <a href="https://github.com/byiyuel" class="code-link" target="_blank">GitHub'da Görüntüle →</a>
-                        </div>
+                    </div>
+                    
+                    <div class="sample-tech">
+                        <span>Flask</span>
+                        <span>Python</span>
+                        <span>API</span>
                     </div>
                 </div>
                 
-                <div class="sample-category">
-                    <h3>🔧 Otomasyon Scriptleri</h3>
-                    <div class="code-samples">
-                        <div class="code-sample">
-                            <div class="code-header">
-                                <span class="code-lang">Python</span>
-                                <span class="code-title">Web Scraping Bot</span>
-                            </div>
-                            <div class="code-content">
-                                <pre><code>import requests
+                <div class="sample-card">
+                    <div class="sample-header">
+                        <div class="sample-icon">🔧</div>
+                        <div class="sample-info">
+                            <h4>Web Scraping Bot</h4>
+                            <p>Kripto para haberlerini otomatik toplama</p>
+                        </div>
+                    </div>
+                    
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-lang">Python</span>
+                            <button class="copy-btn" onclick="copyCode(this)">📋</button>
+                        </div>
+                        <pre><code class="language-python">import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 import time
@@ -387,9 +399,12 @@ class CryptoScraper:
 scraper = CryptoScraper()
 news_df = scraper.scrape_crypto_news(5)
 scraper.save_to_csv(news_df, 'crypto_news.csv')</code></pre>
-                            </div>
-                            <a href="https://github.com/byiyuel" class="code-link" target="_blank">GitHub'da Görüntüle →</a>
-                        </div>
+                    </div>
+                    
+                    <div class="sample-tech">
+                        <span>Python</span>
+                        <span>BeautifulSoup</span>
+                        <span>Pandas</span>
                     </div>
                 </div>
             </div>
@@ -402,11 +417,32 @@ scraper.save_to_csv(news_df, 'crypto_news.csv')</code></pre>
     </div>
     <div class="line" style="float: bottom"></div>
 
-    <script src="./static/js/github-profile.js"></script>
-    <script src="./static/js/technologies.js"></script>
-    <script src="./static/js/github.js"></script>
-    <script src="./static/js/animations.js"></script>
-    <script src="./static/js/crypto-widget.js"></script>
-    <script src="./static/js/skill-levels.js"></script>
+        <script src="./static/js/github-profile.js"></script>
+        <script src="./static/js/technologies.js"></script>
+        <script src="./static/js/github.js"></script>
+        <script src="./static/js/animations.js"></script>
+        <script src="./static/js/crypto-widget.js"></script>
+        <script src="./static/js/skill-levels.js"></script>
+        
+        <script>
+            // Copy code functionality
+            function copyCode(button) {
+                const codeBlock = button.closest('.code-block').querySelector('code');
+                const text = codeBlock.textContent;
+                
+                navigator.clipboard.writeText(text).then(() => {
+                    button.textContent = '✅';
+                    setTimeout(() => {
+                        button.textContent = '📋';
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Copy failed:', err);
+                    button.textContent = '❌';
+                    setTimeout(() => {
+                        button.textContent = '📋';
+                    }, 2000);
+                });
+            }
+        </script>
 </body>
 </html>
