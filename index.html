@@ -55,6 +55,15 @@
         }
         </script>
 
+        <!-- Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'GA_MEASUREMENT_ID');
+        </script>
+
         <!-- Load Style -->
         <link rel="stylesheet" href="./static/scss/style.css" />
 
@@ -72,10 +81,8 @@
             <span class="button-list">
                 <a href="#about">Hakkımda</a>
                 <a href="#skills">Yeteneklerim</a>
-                <a href="#blog">Blog</a>
-                <a href="#cv-section">CV</a>
-                <a href="#work-samples">Örnekler</a>
                 <a href="#projects">Projelerim</a>
+                <a href="#repos">Repolarım</a>
                 <a href="#contact">İletişim</a>
             </span>
         </div>
@@ -212,22 +219,52 @@
                         <div class="skill-item">
                             <div class="skill-icon">🌐</div>
                             <span>HTML5</span>
+                            <div class="skill-level">
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-level="95"></div>
+                                </div>
+                                <span class="skill-percent">95%</span>
+                            </div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-icon">⚡</div>
                             <span>JavaScript</span>
+                            <div class="skill-level">
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-level="90"></div>
+                                </div>
+                                <span class="skill-percent">90%</span>
+                            </div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-icon">🎨</div>
                             <span>CSS3/SCSS</span>
+                            <div class="skill-level">
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-level="92"></div>
+                                </div>
+                                <span class="skill-percent">92%</span>
+                            </div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-icon">⚛️</div>
                             <span>React</span>
+                            <div class="skill-level">
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-level="85"></div>
+                                </div>
+                                <span class="skill-percent">85%</span>
+                            </div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-icon">💚</div>
                             <span>Vue.js</span>
+                            <div class="skill-level">
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-level="80"></div>
+                                </div>
+                                <span class="skill-percent">80%</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -238,22 +275,52 @@
                         <div class="skill-item">
                             <div class="skill-icon">🐍</div>
                             <span>Python</span>
+                            <div class="skill-level">
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-level="95"></div>
+                                </div>
+                                <span class="skill-percent">95%</span>
+                            </div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-icon">🔷</div>
                             <span>C#</span>
+                            <div class="skill-level">
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-level="85"></div>
+                                </div>
+                                <span class="skill-percent">85%</span>
+                            </div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-icon">🟢</div>
                             <span>Node.js</span>
+                            <div class="skill-level">
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-level="80"></div>
+                                </div>
+                                <span class="skill-percent">80%</span>
+                            </div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-icon">🍃</div>
                             <span>MongoDB</span>
+                            <div class="skill-level">
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-level="75"></div>
+                                </div>
+                                <span class="skill-percent">75%</span>
+                            </div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-icon">🐘</div>
                             <span>PostgreSQL</span>
+                            <div class="skill-level">
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-level="78"></div>
+                                </div>
+                                <span class="skill-percent">78%</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -439,121 +506,9 @@
                     <div class="stat-number" data-target="100">0</div>
                     <div class="stat-label">% Memnuniyet</div>
                 </div>
-            </div>
-
-            <hr />
-            <h1 class="title">Blog & Yazılarım</h1>
-            <div id="blog">
-                <div class="blog-card">
-                    <div class="blog-header">
-                        <div class="blog-category">📊 Veri Analizi</div>
-                        <div class="blog-date">15 Aralık 2024</div>
-                    </div>
-                    <h3>Kripto Para Volatilite Analizi: Bitcoin vs Altcoinler</h3>
-                    <p>Bu makalede Bitcoin, Ethereum ve diğer altcoinlerin volatilite analizini gerçekleştirdim. Pandas ve Matplotlib kullanarak risk-getiri profillerini karşılaştırdım ve yatırım stratejileri önerileri sundum.</p>
-                    <div class="blog-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">Pandas</span>
-                        <span class="tag">Matplotlib</span>
-                        <span class="tag">Finans</span>
-                    </div>
-                    <a href="#" class="blog-link">Devamını Oku →</a>
-                </div>
-
-                <div class="blog-card">
-                    <div class="blog-header">
-                        <div class="blog-category">🤖 Makine Öğrenmesi</div>
-                        <div class="blog-date">8 Aralık 2024</div>
-                    </div>
-                    <h3>Scikit-learn ile Finansal Veri Tahminleme</h3>
-                    <p>Finansal piyasa verilerini kullanarak makine öğrenmesi modelleri geliştirdim. Linear Regression, Random Forest ve SVM algoritmalarının performanslarını karşılaştırdım.</p>
-                    <div class="blog-tags">
-                        <span class="tag">Scikit-learn</span>
-                        <span class="tag">Python</span>
-                        <span class="tag">ML</span>
-                        <span class="tag">Finans</span>
-                    </div>
-                    <a href="#" class="blog-link">Devamını Oku →</a>
-                </div>
-
-                <div class="blog-card">
-                    <div class="blog-header">
-                        <div class="blog-category">💻 Web Geliştirme</div>
-                        <div class="blog-date">1 Aralık 2024</div>
-                    </div>
-                    <h3>Modern Web Tasarımında Glassmorphism Trendi</h3>
-                    <p>Bu yazıda glassmorphism tasarım trendini inceledim ve CSS ile nasıl uygulanabileceğini gösterdim. Modern web sitelerinde şeffaflık ve bulanıklık efektlerinin kullanımını ele aldım.</p>
-                    <div class="blog-tags">
-                        <span class="tag">CSS</span>
-                        <span class="tag">Design</span>
-                        <span class="tag">UI/UX</span>
-                        <span class="tag">Trends</span>
-                    </div>
-                    <a href="#" class="blog-link">Devamını Oku →</a>
-                </div>
-
-                <div class="blog-card">
-                    <div class="blog-header">
-                        <div class="blog-category">📈 Ekonometri</div>
-                        <div class="blog-date">24 Kasım 2024</div>
-                    </div>
-                    <h3>Ekonometrik Modellerde Veri Ön İşleme Teknikleri</h3>
-                    <p>Ekonometrik analizlerde veri ön işleme süreçlerini detaylandırdım. Eksik veri, aykırı değer ve normalizasyon tekniklerini Python ile uyguladım.</p>
-                    <div class="blog-tags">
-                        <span class="tag">Ekonometri</span>
-                        <span class="tag">Python</span>
-                        <span class="tag">İstatistik</span>
-                        <span class="tag">Veri</span>
-                    </div>
-                    <a href="#" class="blog-link">Devamını Oku →</a>
-                </div>
-            </div>
-
-            <hr />
-            <h1 class="title">CV & Özgeçmiş</h1>
-            <div id="cv-section">
-                <div class="cv-content">
-                    <div class="cv-info">
-                        <h3>Profesyonel Özgeçmişim</h3>
-                        <p>Detaylı özgeçmişimi PDF formatında indirebilirsiniz. Eğitim geçmişim, projelerim ve teknik yeteneklerim hakkında kapsamlı bilgi bulabilirsiniz.</p>
-                        
-                        <div class="cv-highlights">
-                            <div class="highlight-item">
-                                <div class="highlight-icon">🎓</div>
-                                <div class="highlight-text">
-                                    <h4>Bursa Uludağ Üniversitesi</h4>
-                                    <p>Ekonometri Bölümü - 3. Sınıf</p>
-                                </div>
-                            </div>
-                            
-                            <div class="highlight-item">
-                                <div class="highlight-icon">💼</div>
-                                <div class="highlight-text">
-                                    <h4>4+ Yıl Deneyim</h4>
-                                    <p>Yazılım Geliştirme & Veri Analizi</p>
-                                </div>
-                            </div>
-                            
-                            <div class="highlight-item">
-                                <div class="highlight-icon">🏆</div>
-                                <div class="highlight-text">
-                                    <h4>15+ Proje</h4>
-                                    <p>Tamamlanan Yazılım Projeleri</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="cv-download">
-                        <div class="cv-preview">
-                            <div class="cv-icon">📄</div>
-                            <h4>CV - Baran Yılmaz Yücel</h4>
-                            <p>Son güncelleme: Aralık 2024</p>
-                        </div>
-                        <a href="#" class="btn btn-primary download-btn" onclick="downloadCV()">
-                            📥 CV'yi İndir
-                        </a>
-                    </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="visitor-count">0</div>
+                    <div class="stat-label">Ziyaretçi</div>
                 </div>
             </div>
 
@@ -625,7 +580,7 @@ def analyze_crypto_volatility(data):
     
     return volatility</code></pre>
                             </div>
-                            <a href="#" class="code-link">GitHub'da Görüntüle →</a>
+                            <a href="https://github.com/byiyuel" class="code-link" target="_blank">GitHub'da Görüntüle →</a>
                         </div>
                         
                         <div class="code-sample">
@@ -656,7 +611,7 @@ const CryptoWidget = () => {
   );
 };</code></pre>
                             </div>
-                            <a href="#" class="code-link">GitHub'da Görüntüle →</a>
+                            <a href="https://github.com/byiyuel" class="code-link" target="_blank">GitHub'da Görüntüle →</a>
                         </div>
                     </div>
                 </div>
@@ -843,4 +798,5 @@ const CryptoWidget = () => {
     <script src="./static/js/github.js"></script>
     <script src="./static/js/animations.js"></script>
     <script src="./static/js/crypto-widget.js"></script>
+    <script src="./static/js/skill-levels.js"></script>
 </html>
