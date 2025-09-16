@@ -1144,6 +1144,96 @@ hr {
   color: #6ee7b7;
 }
 
+/* Code Blocks */
+.code-block {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  margin: 1rem 0;
+}
+
+.code-block .code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: rgba(16, 185, 129, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.code-block .code-lang {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.code-block .code-title {
+  color: #f8fafc;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.code-block pre {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 0;
+  padding: 1.5rem;
+  overflow-x: auto;
+  margin: 0;
+}
+
+.code-block code {
+  color: #f8fafc;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* ML Visualization */
+.ml-visualization {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.ml-chart {
+  position: relative;
+  width: 120px;
+  height: 80px;
+  background: rgba(16, 185, 129, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.prediction-line {
+  position: absolute;
+  top: 20px;
+  left: 10px;
+  right: 10px;
+  height: 2px;
+  background: linear-gradient(90deg, #10b981, #34d399);
+  border-radius: 1px;
+}
+
+.actual-points {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 6px;
+  height: 6px;
+  background: #ef4444;
+  border-radius: 50%;
+  box-shadow: 
+    20px 10px 0 #10b981,
+    40px 20px 0 #34d399,
+    60px 15px 0 #6ee7b7;
+}
+
 .skill-item img {
   width: 32px;
   height: 32px;

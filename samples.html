@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="title" content="Çalışma Örnekleri - Baran Yılmaz Yücel" />
+    <meta name="description" content="Veri görselleştirme, kod örnekleri ve teknik projelerimin detaylı örnekleri." />
+    <meta name="keywords" content="çalışma örnekleri, kod, veri görselleştirme, python, javascript, baran yılmaz yücel" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="Turkish" />
+    <meta name="author" content="Baran Yılmaz Yücel" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Çalışma Örnekleri - Baran Yılmaz Yücel" />
+    <meta property="og:description" content="Veri görselleştirme, kod örnekleri ve teknik projelerimin detaylı örnekleri." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://byiyuel.github.io/samples.html" />
+    <meta property="og:image" content="https://byiyuel.github.io/static/images/favicon.png" />
+    <meta property="og:site_name" content="Baran Yılmaz Yücel Çalışma Örnekleri" />
+    <meta property="og:locale" content="tr_TR" />
+    
+    <title>Çalışma Örnekleri - Baran Yılmaz Yücel</title>
+    
+    <!-- Load Style -->
+    <link rel="stylesheet" href="./static/scss/style.css" />
+    <link rel="icon" type="image/png" href="./static/images/favicon.png" />
+</head>
+<body>
+    <div class="line"></div>
+    <div id="navbar">
+        <h1><a href="index.html" style="text-decoration: none; color: inherit;">byiyuel</a></h1>
+        <span class="button-list">
+            <a href="index.html#about">Hakkımda</a>
+            <a href="index.html#skills">Yeteneklerim</a>
+            <a href="index.html#projects">Projelerim</a>
+            <a href="index.html#repos">Repolarım</a>
+            <a href="index.html#contact">İletişim</a>
+            <a href="samples.html" style="color: #34d399;">Örnekler</a>
+        </span>
+    </div>
+
+    <div class="container">
+        <div class="profile">
+            <h1 class="title">💻 Çalışma Örnekleri</h1>
+            <p class="subtitle">Kod örnekleri, veri görselleştirmeleri ve teknik projelerim</p>
+            
+            <div id="work-samples">
+                <div class="sample-category">
+                    <h3>📊 Veri Görselleştirme</h3>
+                    <div class="sample-grid">
+                        <div class="sample-item">
+                            <div class="sample-preview">
+                                <div class="chart-placeholder">
+                                    <div class="chart-bar" style="height: 60%"></div>
+                                    <div class="chart-bar" style="height: 80%"></div>
+                                    <div class="chart-bar" style="height: 45%"></div>
+                                    <div class="chart-bar" style="height: 90%"></div>
+                                </div>
+                            </div>
+                            <h4>Kripto Para Performans Analizi</h4>
+                            <p>Bitcoin ve altcoinlerin aylık performans karşılaştırması</p>
+                            
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span class="code-lang">Python</span>
+                                    <span class="code-title">Performans Analizi</span>
+                                </div>
+                                <pre><code>import matplotlib.pyplot as plt
+import pandas as pd
+
+def plot_crypto_performance(data):
+    """Kripto para performansını görselleştirir"""
+    fig, ax = plt.subplots(figsize=(12, 6))
+    
+    # Bar chart oluştur
+    bars = ax.bar(data['coin'], data['performance'])
+    
+    # Renkleri ayarla
+    colors = ['#10b981' if x > 0 else '#ef4444' for x in data['performance']]
+    for bar, color in zip(bars, colors):
+        bar.set_color(color)
+    
+    ax.set_title('Kripto Para Performans Analizi')
+    ax.set_ylabel('Aylık Performans (%)')
+    ax.grid(True, alpha=0.3)
+    
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.show()</code></pre>
+                            </div>
+                            
+                            <div class="sample-tech">
+                                <span>Python</span>
+                                <span>Matplotlib</span>
+                                <span>Pandas</span>
+                            </div>
+                        </div>
+                        
+                        <div class="sample-item">
+                            <div class="sample-preview">
+                                <div class="chart-placeholder pie-chart">
+                                    <div class="pie-slice slice-1"></div>
+                                    <div class="pie-slice slice-2"></div>
+                                    <div class="pie-slice slice-3"></div>
+                                </div>
+                            </div>
+                            <h4>Portfolyo Dağılım Analizi</h4>
+                            <p>Yatırım portföyünün sektörel dağılımı</p>
+                            
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span class="code-lang">Python</span>
+                                    <span class="code-title">Pie Chart</span>
+                                </div>
+                                <pre><code>import matplotlib.pyplot as plt
+import seaborn as sns
+
+def create_portfolio_pie(portfolio_data):
+    """Portföy dağılımını pie chart olarak gösterir"""
+    fig, ax = plt.subplots(figsize=(10, 8))
+    
+    # Pie chart oluştur
+    wedges, texts, autotexts = ax.pie(
+        portfolio_data['values'],
+        labels=portfolio_data['sectors'],
+        autopct='%1.1f%%',
+        startangle=90,
+        colors=sns.color_palette("Set3")
+    )
+    
+    # Stil ayarları
+    ax.set_title('Portföy Sektörel Dağılımı', fontsize=16, fontweight='bold')
+    
+    # Legend ekle
+    ax.legend(wedges, portfolio_data['sectors'],
+              title="Sektörler",
+              loc="center left",
+              bbox_to_anchor=(1, 0, 0.5, 1))
+    
+    plt.tight_layout()
+    plt.show()</code></pre>
+                            </div>
+                            
+                            <div class="sample-tech">
+                                <span>Python</span>
+                                <span>Seaborn</span>
+                                <span>Plotly</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sample-category">
+                    <h3>🤖 Makine Öğrenmesi</h3>
+                    <div class="sample-grid">
+                        <div class="sample-item">
+                            <div class="sample-preview">
+                                <div class="ml-visualization">
+                                    <div class="ml-chart">
+                                        <div class="prediction-line"></div>
+                                        <div class="actual-points"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h4>Fiyat Tahminleme Modeli</h4>
+                            <p>LSTM ile kripto para fiyat tahminleme</p>
+                            
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span class="code-lang">Python</span>
+                                    <span class="code-title">LSTM Model</span>
+                                </div>
+                                <pre><code>import tensorflow as tf
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import LSTM, Dense, Dropout
+import numpy as np
+
+def create_lstm_model(input_shape):
+    """LSTM modeli oluşturur"""
+    model = Sequential([
+        LSTM(50, return_sequences=True, input_shape=input_shape),
+        Dropout(0.2),
+        LSTM(50, return_sequences=False),
+        Dropout(0.2),
+        Dense(25),
+        Dense(1)
+    ])
+    
+    model.compile(optimizer='adam', loss='mean_squared_error')
+    return model
+
+def train_price_predictor(data):
+    """Fiyat tahminleme modelini eğitir"""
+    # Veriyi hazırla
+    X, y = prepare_sequences(data)
+    
+    # Modeli oluştur
+    model = create_lstm_model((X.shape[1], X.shape[2]))
+    
+    # Eğit
+    history = model.fit(X, y, 
+                       batch_size=32, 
+                       epochs=100, 
+                       validation_split=0.2,
+                       verbose=1)
+    
+    return model, history</code></pre>
+                            </div>
+                            
+                            <div class="sample-tech">
+                                <span>TensorFlow</span>
+                                <span>LSTM</span>
+                                <span>Python</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sample-category">
+                    <h3>💻 Web Geliştirme</h3>
+                    <div class="code-samples">
+                        <div class="code-sample">
+                            <div class="code-header">
+                                <span class="code-lang">JavaScript</span>
+                                <span class="code-title">React Crypto Widget</span>
+                            </div>
+                            <div class="code-content">
+                                <pre><code>import React, { useState, useEffect } from 'react';
+
+const CryptoWidget = () => {
+  const [prices, setPrices] = useState({});
+  const [loading, setLoading] = useState(true);
+  
+  useEffect(() => {
+    fetchCryptoPrices();
+    const interval = setInterval(fetchCryptoPrices, 30000);
+    return () => clearInterval(interval);
+  }, []);
+  
+  const fetchCryptoPrices = async () => {
+    try {
+      const response = await fetch(
+        'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd'
+      );
+      const data = await response.json();
+      setPrices(data);
+      setLoading(false);
+    } catch (error) {
+      console.error('Error fetching prices:', error);
+    }
+  };
+  
+  return (
+    &lt;div className="crypto-widget"&gt;
+      {loading ? (
+        &lt;div className="loading"&gt;Yükleniyor...&lt;/div&gt;
+      ) : (
+        Object.entries(prices).map(([coin, data]) => (
+          &lt;div key={coin} className="coin-card"&gt;
+            &lt;h3&gt;{coin.charAt(0).toUpperCase() + coin.slice(1)}&lt;/h3&gt;
+            &lt;p&gt;${data.usd.toLocaleString()}&lt;/p&gt;
+          &lt;/div&gt;
+        ))
+      )}
+    &lt;/div&gt;
+  );
+};
+
+export default CryptoWidget;</code></pre>
+                            </div>
+                            <a href="https://github.com/byiyuel" class="code-link" target="_blank">GitHub'da Görüntüle →</a>
+                        </div>
+                        
+                        <div class="code-sample">
+                            <div class="code-header">
+                                <span class="code-lang">Python</span>
+                                <span class="code-title">Flask API</span>
+                            </div>
+                            <div class="code-content">
+                                <pre><code>from flask import Flask, jsonify, request
+from flask_cors import CORS
+import pandas as pd
+import numpy as np
+
+app = Flask(__name__)
+CORS(app)
+
+@app.route('/api/crypto-analysis', methods=['POST'])
+def analyze_crypto():
+    """Kripto para analizi API endpoint'i"""
+    try:
+        data = request.get_json()
+        symbol = data.get('symbol', 'BTC')
+        
+        # Veri analizi yap
+        analysis = perform_crypto_analysis(symbol)
+        
+        return jsonify({
+            'success': True,
+            'symbol': symbol,
+            'analysis': analysis
+        })
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        }), 500
+
+def perform_crypto_analysis(symbol):
+    """Kripto para analizi gerçekleştirir"""
+    # Gerçek analiz kodu buraya gelecek
+    return {
+        'volatility': 0.25,
+        'trend': 'bullish',
+        'support': 45000,
+        'resistance': 50000
+    }
+
+if __name__ == '__main__':
+    app.run(debug=True)</code></pre>
+                            </div>
+                            <a href="https://github.com/byiyuel" class="code-link" target="_blank">GitHub'da Görüntüle →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sample-category">
+                    <h3>🔧 Otomasyon Scriptleri</h3>
+                    <div class="code-samples">
+                        <div class="code-sample">
+                            <div class="code-header">
+                                <span class="code-lang">Python</span>
+                                <span class="code-title">Web Scraping Bot</span>
+                            </div>
+                            <div class="code-content">
+                                <pre><code>import requests
+from bs4 import BeautifulSoup
+import pandas as pd
+import time
+from datetime import datetime
+
+class CryptoScraper:
+    def __init__(self):
+        self.session = requests.Session()
+        self.session.headers.update({
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+        })
+    
+    def scrape_crypto_news(self, limit=10):
+        """Kripto para haberlerini scrape eder"""
+        url = "https://cointelegraph.com/news"
+        
+        try:
+            response = self.session.get(url)
+            response.raise_for_status()
+            
+            soup = BeautifulSoup(response.content, 'html.parser')
+            articles = soup.find_all('article', limit=limit)
+            
+            news_data = []
+            for article in articles:
+                title = article.find('h3').text.strip()
+                link = article.find('a')['href']
+                timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                
+                news_data.append({
+                    'title': title,
+                    'link': link,
+                    'scraped_at': timestamp
+                })
+            
+            return pd.DataFrame(news_data)
+            
+        except Exception as e:
+            print(f"Scraping error: {e}")
+            return pd.DataFrame()
+    
+    def save_to_csv(self, df, filename):
+        """Veriyi CSV'ye kaydeder"""
+        df.to_csv(filename, index=False)
+        print(f"Data saved to {filename}")
+
+# Kullanım örneği
+scraper = CryptoScraper()
+news_df = scraper.scrape_crypto_news(5)
+scraper.save_to_csv(news_df, 'crypto_news.csv')</code></pre>
+                            </div>
+                            <a href="https://github.com/byiyuel" class="code-link" target="_blank">GitHub'da Görüntüle →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="alt-footer">
+        <a href="https://github.com/byiyuel" target="_blank">Bu website Git-Hub'da açık kaynaklı olarak yayınlanıyor.</a>
+    </div>
+    <div class="line" style="float: bottom"></div>
+
+    <script src="./static/js/github-profile.js"></script>
+    <script src="./static/js/technologies.js"></script>
+    <script src="./static/js/github.js"></script>
+    <script src="./static/js/animations.js"></script>
+    <script src="./static/js/crypto-widget.js"></script>
+    <script src="./static/js/skill-levels.js"></script>
+</body>
+</html>

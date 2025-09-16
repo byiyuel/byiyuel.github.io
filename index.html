@@ -84,6 +84,7 @@
                 <a href="#projects">Projelerim</a>
                 <a href="#repos">Repolarım</a>
                 <a href="#contact">İletişim</a>
+                <a href="samples.html">Örnekler</a>
             </span>
         </div>
         <!-- Hero Section -->
@@ -509,111 +510,6 @@
                 <div class="stat-card">
                     <div class="stat-number" id="visitor-count">0</div>
                     <div class="stat-label">Ziyaretçi</div>
-                </div>
-            </div>
-
-            <hr />
-            <h1 class="title">Çalışma Örnekleri</h1>
-            <div id="work-samples">
-                <div class="sample-category">
-                    <h3>📊 Veri Görselleştirme</h3>
-                    <div class="sample-grid">
-                        <div class="sample-item">
-                            <div class="sample-preview">
-                                <div class="chart-placeholder">
-                                    <div class="chart-bar" style="height: 60%"></div>
-                                    <div class="chart-bar" style="height: 80%"></div>
-                                    <div class="chart-bar" style="height: 45%"></div>
-                                    <div class="chart-bar" style="height: 90%"></div>
-                                </div>
-                            </div>
-                            <h4>Kripto Para Performans Analizi</h4>
-                            <p>Bitcoin ve altcoinlerin aylık performans karşılaştırması</p>
-                            <div class="sample-tech">
-                                <span>Python</span>
-                                <span>Matplotlib</span>
-                                <span>Pandas</span>
-                            </div>
-                        </div>
-                        
-                        <div class="sample-item">
-                            <div class="sample-preview">
-                                <div class="chart-placeholder pie-chart">
-                                    <div class="pie-slice slice-1"></div>
-                                    <div class="pie-slice slice-2"></div>
-                                    <div class="pie-slice slice-3"></div>
-                                </div>
-                            </div>
-                            <h4>Portfolyo Dağılım Analizi</h4>
-                            <p>Yatırım portföyünün sektörel dağılımı</p>
-                            <div class="sample-tech">
-                                <span>Python</span>
-                                <span>Seaborn</span>
-                                <span>Plotly</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="sample-category">
-                    <h3>💻 Kod Örnekleri</h3>
-                    <div class="code-samples">
-                        <div class="code-sample">
-                            <div class="code-header">
-                                <span class="code-lang">Python</span>
-                                <span class="code-title">Kripto Para Analizi</span>
-                            </div>
-                            <div class="code-content">
-                                <pre><code>import pandas as pd
-import matplotlib.pyplot as plt
-
-def analyze_crypto_volatility(data):
-    """Kripto para volatilite analizi"""
-    returns = data.pct_change()
-    volatility = returns.std() * np.sqrt(252)
-    
-    plt.figure(figsize=(12, 6))
-    volatility.plot(kind='bar')
-    plt.title('Kripto Para Volatilite Analizi')
-    plt.ylabel('Yıllık Volatilite')
-    plt.show()
-    
-    return volatility</code></pre>
-                            </div>
-                            <a href="https://github.com/byiyuel" class="code-link" target="_blank">GitHub'da Görüntüle →</a>
-                        </div>
-                        
-                        <div class="code-sample">
-                            <div class="code-header">
-                                <span class="code-lang">JavaScript</span>
-                                <span class="code-title">React Component</span>
-                            </div>
-                            <div class="code-content">
-                                <pre><code>import React, { useState, useEffect } from 'react';
-
-const CryptoWidget = () => {
-  const [prices, setPrices] = useState({});
-  
-  useEffect(() => {
-    fetchCryptoPrices();
-    const interval = setInterval(fetchCryptoPrices, 30000);
-    return () => clearInterval(interval);
-  }, []);
-  
-  return (
-    &lt;div className="crypto-widget"&gt;
-      {Object.entries(prices).map(([coin, price]) => (
-        &lt;div key={coin} className="coin-price"&gt;
-          {coin}: ${price}
-        &lt;/div&gt;
-      ))}
-    &lt;/div&gt;
-  );
-};</code></pre>
-                            </div>
-                            <a href="https://github.com/byiyuel" class="code-link" target="_blank">GitHub'da Görüntüle →</a>
-                        </div>
-                    </div>
                 </div>
             </div>
 
