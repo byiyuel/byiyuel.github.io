@@ -931,10 +931,23 @@ hr {
   transform: translateY(-3px);
 }
 
+.skill-item:hover .skill-icon {
+  transform: scale(1.2);
+  text-shadow: 0 0 20px rgba(16, 185, 129, 0.6);
+}
+
 .skill-item img {
   width: 32px;
   height: 32px;
   margin-bottom: 0.5rem;
+}
+
+.skill-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #f8fafc;
+  text-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .skill-item span {
