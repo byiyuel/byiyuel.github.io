@@ -52,9 +52,9 @@ async function addRepos() {
 
         const repoDescription = document.createElement("p");
         repoDescription.innerText =
-            repo.descriptionlength > 76
+            repo.description && repo.description.length > 76
                 ? `${repo.description.substring(0, 73)}...`
-                : repo.description;
+                : repo.description || "Açıklama bulunmuyor";
 
         repoDiv.append(repoTitle, repoDescription);
         repos.appendChild(repoDiv);
