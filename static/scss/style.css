@@ -160,6 +160,60 @@ hr {
   left: 0;
 }
 
+/* Crypto Navbar Widget */
+.crypto-navbar {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  margin: 0 1rem;
+}
+
+.crypto-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.crypto-item:hover {
+  transform: scale(1.05);
+}
+
+.crypto-symbol {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.crypto-price {
+  color: #f8fafc;
+  font-size: 0.9rem;
+  font-weight: 600;
+  min-width: 60px;
+}
+
+@media only screen and (max-width: 768px) {
+  .crypto-navbar {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    margin: 1rem 0 0 0;
+  }
+  
+  .crypto-item {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .crypto-price {
+    font-size: 0.8rem;
+    min-width: 50px;
+  }
+}
+
 .center {
   margin: 0 auto;
   width: 90%;
@@ -363,9 +417,17 @@ hr {
   color: #f8fafc;
   font-size: 48px;
   font-weight: 700;
-  margin: 3rem 0 2rem;
+  margin: 3rem 0 1rem;
   letter-spacing: -1px;
   position: relative;
+}
+
+.subtitle {
+  color: #cbd5e1;
+  font-size: 1.1rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  font-weight: 400;
 }
 
 .title::after {
