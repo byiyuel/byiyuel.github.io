@@ -74,3 +74,5 @@ class VisitorCounter {
 
 // Initialize visitor counter
 new VisitorCounter();
+
+
