@@ -2662,6 +2662,7 @@ hr {
   .admin-message-item {
     padding: 1rem;
   }
+<<<<<<< HEAD
 }
 
 /* Blog Page Styles */
@@ -3398,4 +3399,6 @@ hr {
   .ql-toolbar .ql-formats {
     margin-right: 0.5rem !important;
   }
+=======
+>>>>>>> parent of 48921a6 (blog page update)
 }

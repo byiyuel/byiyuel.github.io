@@ -11,16 +11,13 @@ class BlogManager {
     init() {
         this.loadPosts();
         this.setupEventListeners();
-        this.loadPopularPosts();
-        this.loadTagCloud();
-        this.updateCategoryCounts();
     }
 
     setupEventListeners() {
-        // Category buttons
-        document.querySelectorAll('.category-btn').forEach(btn => {
+        // Filter buttons
+        document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
-                this.setActiveCategory(e.target);
+                this.setActiveFilter(e.target);
                 this.currentCategory = e.target.dataset.category;
                 this.currentPage = 1;
                 this.displayPosts();
@@ -31,111 +28,13 @@ class BlogManager {
         document.getElementById('load-more-btn').addEventListener('click', () => {
             this.loadMorePosts();
         });
-
-        // Search functionality
-        const searchInput = document.getElementById('blog-search');
-        if (searchInput) {
-            searchInput.addEventListener('input', (e) => {
-                this.searchPosts(e.target.value);
-            });
-        }
-
-        // Tag clicks
-        document.addEventListener('click', (e) => {
-            if (e.target.classList.contains('tag-item')) {
-                this.filterByTag(e.target.textContent);
-            }
-        });
     }
 
-    setActiveCategory(activeBtn) {
-        document.querySelectorAll('.category-btn').forEach(btn => {
+    setActiveFilter(activeBtn) {
+        document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.classList.remove('active');
         });
         activeBtn.classList.add('active');
-    }
-
-    updateCategoryCounts() {
-        const categories = ['all', 'ekonometri', 'veri-analizi', 'yazilim', 'kripto'];
-        
-        categories.forEach(category => {
-            const countElement = document.getElementById(`count-${category}`);
-            if (countElement) {
-                let count = 0;
-                if (category === 'all') {
-                    count = this.posts.length;
-                } else {
-                    count = this.posts.filter(post => post.category === category).length;
-                }
-                countElement.textContent = count;
-            }
-        });
-    }
-
-    loadPopularPosts() {
-        const popularContainer = document.getElementById('popular-posts');
-        if (!popularContainer) return;
-
-        // Get most recent 3 posts as popular
-        const popularPosts = this.posts.slice(0, 3);
-        
-        popularContainer.innerHTML = popularPosts.map(post => `
-            <div class="popular-post" onclick="blogManager.readPost(${post.id})">
-                <img src="${post.image}" alt="${post.title}" class="popular-post-image" onerror="this.src='https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800'">
-                <div class="popular-post-content">
-                    <h4>${post.title}</h4>
-                    <p>${this.formatDate(post.date)}</p>
-                </div>
-            </div>
-        `).join('');
-    }
-
-    loadTagCloud() {
-        const tagContainer = document.getElementById('tag-cloud');
-        if (!tagContainer) return;
-
-        // Get all unique tags
-        const allTags = [...new Set(this.posts.flatMap(post => post.tags))];
-        
-        tagContainer.innerHTML = allTags.map(tag => `
-            <span class="tag-item">${tag}</span>
-        `).join('');
-    }
-
-    searchPosts(query) {
-        if (!query.trim()) {
-            this.displayPosts();
-            return;
-        }
-
-        const filteredPosts = this.posts.filter(post => 
-            post.title.toLowerCase().includes(query.toLowerCase()) ||
-            post.excerpt.toLowerCase().includes(query.toLowerCase()) ||
-            post.tags.some(tag => tag.toLowerCase().includes(query.toLowerCase()))
-        );
-
-        this.displayFilteredPosts(filteredPosts);
-    }
-
-    filterByTag(tag) {
-        const filteredPosts = this.posts.filter(post => 
-            post.tags.includes(tag)
-        );
-
-        this.displayFilteredPosts(filteredPosts);
-    }
-
-    displayFilteredPosts(posts) {
-        const container = document.getElementById('blog-posts');
-        container.innerHTML = '';
-
-        posts.forEach(post => {
-            const postElement = this.createPostElement(post);
-            container.appendChild(postElement);
-        });
-
-        // Hide load more button for filtered results
-        document.getElementById('load-more-btn').style.display = 'none';
     }
 
     loadPosts() {
@@ -228,22 +127,23 @@ class BlogManager {
 
     createPostElement(post) {
         const postDiv = document.createElement('div');
-        postDiv.className = 'blog-post-card';
+        postDiv.className = 'blog-post';
         postDiv.innerHTML = `
-            <img src="${post.image}" alt="${post.title}" class="blog-post-image" onerror="this.src='https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800'">
-            <div class="blog-post-content">
-                <div class="blog-post-meta">
-                    <span class="blog-post-category">${this.getCategoryName(post.category)}</span>
-                    <span class="blog-post-date">${this.formatDate(post.date)}</span>
+            <div class="post-image">
+                <img src="${post.image}" alt="${post.title}" onerror="this.src='https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800'">
+                <div class="post-category">${this.getCategoryName(post.category)}</div>
+            </div>
+            <div class="post-content">
+                <h3 class="post-title">${post.title}</h3>
+                <p class="post-excerpt">${post.excerpt}</p>
+                <div class="post-meta">
+                    <span class="post-date">${this.formatDate(post.date)}</span>
+                    <span class="post-author">${post.author}</span>
                 </div>
-                <h3 class="blog-post-title">${post.title}</h3>
-                <p class="blog-post-excerpt">${post.excerpt}</p>
-                <div class="blog-post-tags">
-                    ${post.tags.map(tag => `<span class="blog-post-tag">${tag}</span>`).join('')}
+                <div class="post-tags">
+                    ${post.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
                 </div>
-                <a href="#" class="blog-post-read-more" onclick="blogManager.readPost(${post.id}); return false;">
-                    Devamını Oku →
-                </a>
+                <button class="read-more-btn" onclick="blogManager.readPost(${post.id})">Devamını Oku</button>
             </div>
         `;
         return postDiv;
