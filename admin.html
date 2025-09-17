@@ -55,18 +55,29 @@
                 <!-- Login Form -->
                 <div id="login-form" class="admin-login">
                     <div class="login-card">
-                        <h3>Giriş Yap</h3>
+                        <h3>🔐 Admin Girişi</h3>
+                        <p class="login-subtitle">Güvenli admin paneline erişim</p>
                         <form id="loginForm">
                             <div class="form-group">
                                 <label for="username">Kullanıcı Adı:</label>
-                                <input type="text" id="username" name="username" required>
+                                <input type="text" id="username" name="username" required placeholder="Admin kullanıcı adınız">
                             </div>
                             <div class="form-group">
                                 <label for="password">Şifre:</label>
-                                <input type="password" id="password" name="password" required>
+                                <input type="password" id="password" name="password" required placeholder="Güvenli şifreniz">
+                            </div>
+                            <div class="form-group">
+                                <label for="security-code">Güvenlik Kodu:</label>
+                                <div class="security-input">
+                                    <input type="text" id="security-code" name="securityCode" required placeholder="Güvenlik kodunu girin">
+                                    <div class="security-display" id="security-display">1234</div>
+                                </div>
                             </div>
                             <button type="submit" class="btn btn-primary">Giriş Yap</button>
                         </form>
+                        <div class="login-info">
+                            <p>💡 Güvenlik kodu: <span id="current-code">1234</span></p>
+                        </div>
                     </div>
                 </div>
                 
@@ -128,6 +139,36 @@
                             <!-- Posts will be loaded here -->
                         </div>
                     </div>
+                    
+                    <!-- Contact Messages -->
+                    <div class="admin-section">
+                        <h4>📧 İletişim Mesajları</h4>
+                        <div class="messages-stats">
+                            <div class="stat-item">
+                                <span class="stat-number" id="total-messages">0</span>
+                                <span class="stat-label">Toplam Mesaj</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="new-messages">0</span>
+                                <span class="stat-label">Yeni Mesaj</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="replied-messages">0</span>
+                                <span class="stat-label">Yanıtlanan</span>
+                            </div>
+                        </div>
+                        
+                        <div class="messages-filter">
+                            <button class="filter-btn active" data-status="all">Tümü</button>
+                            <button class="filter-btn" data-status="new">Yeni</button>
+                            <button class="filter-btn" data-status="read">Okundu</button>
+                            <button class="filter-btn" data-status="replied">Yanıtlandı</button>
+                        </div>
+                        
+                        <div id="messages-list" class="messages-list">
+                            <!-- Messages will be loaded here -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -144,6 +185,7 @@
     <script src="./static/js/animations.js"></script>
     <script src="./static/js/crypto-widget.js"></script>
     <script src="./static/js/skill-levels.js"></script>
+    <script src="./static/js/contact.js"></script>
     <script src="./static/js/admin.js"></script>
 </body>
 </html>

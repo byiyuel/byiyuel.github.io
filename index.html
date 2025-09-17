@@ -99,16 +99,16 @@
                 </div>
             </div>
             
-        <span class="button-list">
-            <a href="#about">Hakkımda</a>
-            <a href="#skills">Yeteneklerim</a>
-            <a href="#projects">Projelerim</a>
-            <a href="#repos">Repolarım</a>
-            <a href="#contact">İletişim</a>
-            <a href="samples.html">Örnekler</a>
-            <a href="blog.html">Blog</a>
-            <a href="admin.html">Admin</a>
-        </span>
+            <span class="button-list">
+                <a href="#about">Hakkımda</a>
+                <a href="#skills">Yeteneklerim</a>
+                <a href="#projects">Projelerim</a>
+                <a href="#repos">Repolarım</a>
+                <a href="#contact">İletişim</a>
+                <a href="samples.html">Örnekler</a>
+                <a href="blog.html">Blog</a>
+                <a href="admin.html">Admin</a>
+            </span>
         </div>
         <!-- Hero Section -->
         <div class="hero-section">
@@ -627,13 +627,25 @@
                             </div>
                             
                             <div class="form-group">
+                                <label for="phone">Telefon (Opsiyonel)</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            
+                            <div class="form-group">
                                 <label for="subject">Konu</label>
-                                <input type="text" id="subject" name="subject" required>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Konu Seçin</option>
+                                    <option value="proje-teklifi">Proje Teklifi</option>
+                                    <option value="işbirliği">İşbirliği</option>
+                                    <option value="soru">Soru</option>
+                                    <option value="geri-bildirim">Geri Bildirim</option>
+                                    <option value="diğer">Diğer</option>
+                                </select>
                             </div>
                             
                             <div class="form-group">
                                 <label for="message">Mesaj</label>
-                                <textarea id="message" name="message" rows="5" required></textarea>
+                                <textarea id="message" name="message" rows="5" required placeholder="Mesajınızı buraya yazın..."></textarea>
                             </div>
                             
                             <button type="submit" class="btn btn-primary">Mesaj Gönder</button>
@@ -651,10 +663,11 @@
         </div>
         <div class="line" style="float: bottom"></div>
     </body>
-    <script src="./static/js/github-profile.js"></script>
-    <script src="./static/js/technologies.js"></script>
-    <script src="./static/js/github.js"></script>
-    <script src="./static/js/animations.js"></script>
-    <script src="./static/js/crypto-widget.js"></script>
-    <script src="./static/js/skill-levels.js"></script>
+        <script src="./static/js/github-profile.js"></script>
+        <script src="./static/js/technologies.js"></script>
+        <script src="./static/js/github.js"></script>
+        <script src="./static/js/animations.js"></script>
+        <script src="./static/js/crypto-widget.js"></script>
+        <script src="./static/js/skill-levels.js"></script>
+        <script src="./static/js/contact.js"></script>
 </html>

@@ -3,12 +3,37 @@ class AdminPanel {
     constructor() {
         this.isLoggedIn = false;
         this.currentUser = null;
+        this.securityCode = this.generateSecurityCode();
+        this.currentMessageFilter = 'all';
         this.init();
     }
 
     init() {
         this.checkLoginStatus();
         this.setupEventListeners();
+        this.updateSecurityCode();
+    }
+
+    generateSecurityCode() {
+        return Math.floor(1000 + Math.random() * 9000).toString();
+    }
+
+    updateSecurityCode() {
+        this.securityCode = this.generateSecurityCode();
+        const displayElement = document.getElementById('security-display');
+        const currentCodeElement = document.getElementById('current-code');
+        
+        if (displayElement) {
+            displayElement.textContent = this.securityCode;
+        }
+        if (currentCodeElement) {
+            currentCodeElement.textContent = this.securityCode;
+        }
+        
+        // Update security code every 5 minutes
+        setTimeout(() => {
+            this.updateSecurityCode();
+        }, 300000);
     }
 
     setupEventListeners() {
@@ -47,23 +72,35 @@ class AdminPanel {
     handleLogin() {
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
+        const securityCode = document.getElementById('security-code').value;
 
-        // Simple authentication (in real app, use proper authentication)
-        if (username === 'admin' && password === 'admin123') {
+        // Enhanced authentication with security code
+        if (username === 'admin' && password === 'admin123' && securityCode === this.securityCode) {
             this.isLoggedIn = true;
             this.currentUser = username;
             
             // Save login session (expires in 24 hours)
             const loginData = {
                 username: username,
-                expires: Date.now() + (24 * 60 * 60 * 1000)
+                expires: Date.now() + (24 * 60 * 60 * 1000),
+                securityCode: this.securityCode
             };
             localStorage.setItem('adminLogin', JSON.stringify(loginData));
             
             this.showDashboard();
-            this.showNotification('Giriş başarılı!', 'success');
+            this.showNotification('Giriş başarılı! Hoş geldiniz.', 'success');
         } else {
-            this.showNotification('Kullanıcı adı veya şifre hatalı!', 'error');
+            let errorMessage = 'Giriş başarısız! ';
+            if (username !== 'admin') {
+                errorMessage += 'Kullanıcı adı hatalı. ';
+            }
+            if (password !== 'admin123') {
+                errorMessage += 'Şifre hatalı. ';
+            }
+            if (securityCode !== this.securityCode) {
+                errorMessage += 'Güvenlik kodu hatalı. ';
+            }
+            this.showNotification(errorMessage.trim(), 'error');
         }
     }
 
@@ -85,6 +122,22 @@ class AdminPanel {
         document.getElementById('admin-dashboard').style.display = 'block';
         document.getElementById('admin-username').textContent = this.currentUser;
         this.loadPostsList();
+        this.loadMessagesList();
+        this.setupMessageFilters();
+    }
+
+    setupMessageFilters() {
+        document.querySelectorAll('.messages-filter .filter-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                // Remove active class from all buttons
+                document.querySelectorAll('.messages-filter .filter-btn').forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                e.target.classList.add('active');
+                
+                this.currentMessageFilter = e.target.dataset.status;
+                this.loadMessagesList();
+            });
+        });
     }
 
     handleAddPost() {
@@ -208,6 +261,193 @@ class AdminPanel {
         const submitBtn = document.querySelector('#add-post-form button[type="submit"]');
         submitBtn.textContent = 'Yazıyı Kaydet';
         submitBtn.onclick = null;
+    }
+
+    loadMessagesList() {
+        const messagesList = document.getElementById('messages-list');
+        messagesList.innerHTML = '';
+
+        // Get messages from contact manager
+        let messages = [];
+        if (window.contactManager) {
+            messages = window.contactManager.getAllMessages();
+        } else {
+            // Fallback: load from localStorage
+            const savedMessages = localStorage.getItem('contactMessages');
+            messages = savedMessages ? JSON.parse(savedMessages) : [];
+        }
+
+        // Filter messages
+        let filteredMessages = messages;
+        if (this.currentMessageFilter !== 'all') {
+            filteredMessages = messages.filter(msg => msg.status === this.currentMessageFilter);
+        }
+
+        // Update stats
+        this.updateMessageStats(messages);
+
+        if (filteredMessages.length === 0) {
+            messagesList.innerHTML = '<p class="no-messages">Henüz mesaj bulunmuyor.</p>';
+            return;
+        }
+
+        filteredMessages.forEach(message => {
+            const messageElement = this.createMessageElement(message);
+            messagesList.appendChild(messageElement);
+        });
+    }
+
+    createMessageElement(message) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `admin-message-item ${message.status}`;
+        
+        const statusIcon = {
+            'new': '🆕',
+            'read': '👁️',
+            'replied': '✅'
+        };
+
+        const statusText = {
+            'new': 'Yeni',
+            'read': 'Okundu',
+            'replied': 'Yanıtlandı'
+        };
+
+        messageDiv.innerHTML = `
+            <div class="message-header">
+                <div class="message-info">
+                    <h4>${message.name}</h4>
+                    <p class="message-meta">
+                        ${message.email} • ${this.formatDate(message.timestamp)} • 
+                        <span class="message-subject">${this.getSubjectText(message.subject)}</span>
+                    </p>
+                </div>
+                <div class="message-status">
+                    <span class="status-badge ${message.status}">
+                        ${statusIcon[message.status]} ${statusText[message.status]}
+                    </span>
+                </div>
+            </div>
+            <div class="message-content">
+                <p>${message.message}</p>
+                ${message.phone ? `<p class="message-phone">📞 ${message.phone}</p>` : ''}
+            </div>
+            <div class="message-actions">
+                <button class="btn btn-small btn-secondary" onclick="adminPanel.viewMessage(${message.id})">Görüntüle</button>
+                <button class="btn btn-small btn-primary" onclick="adminPanel.markAsRead(${message.id})">Okundu</button>
+                <button class="btn btn-small btn-success" onclick="adminPanel.markAsReplied(${message.id})">Yanıtlandı</button>
+                <button class="btn btn-small btn-danger" onclick="adminPanel.deleteMessage(${message.id})">Sil</button>
+            </div>
+        `;
+        return messageDiv;
+    }
+
+    getSubjectText(subject) {
+        const subjects = {
+            'proje-teklifi': 'Proje Teklifi',
+            'işbirliği': 'İşbirliği',
+            'soru': 'Soru',
+            'geri-bildirim': 'Geri Bildirim',
+            'diğer': 'Diğer'
+        };
+        return subjects[subject] || subject;
+    }
+
+    formatDate(timestamp) {
+        const date = new Date(timestamp);
+        return date.toLocaleDateString('tr-TR', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+    }
+
+    updateMessageStats(messages) {
+        const stats = {
+            total: messages.length,
+            new: messages.filter(m => m.status === 'new').length,
+            read: messages.filter(m => m.status === 'read').length,
+            replied: messages.filter(m => m.status === 'replied').length
+        };
+
+        document.getElementById('total-messages').textContent = stats.total;
+        document.getElementById('new-messages').textContent = stats.new;
+        document.getElementById('replied-messages').textContent = stats.replied;
+    }
+
+    viewMessage(messageId) {
+        const messages = window.contactManager ? window.contactManager.getAllMessages() : [];
+        const message = messages.find(m => m.id === messageId);
+        
+        if (message) {
+            this.showMessageModal(message);
+        }
+    }
+
+    showMessageModal(message) {
+        const modal = document.createElement('div');
+        modal.className = 'message-modal';
+        modal.innerHTML = `
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>📧 Mesaj Detayı</h2>
+                    <button class="close-modal" onclick="this.closest('.message-modal').remove()">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="message-details">
+                        <div class="detail-row">
+                            <strong>Gönderen:</strong> ${message.name}
+                        </div>
+                        <div class="detail-row">
+                            <strong>Email:</strong> ${message.email}
+                        </div>
+                        ${message.phone ? `<div class="detail-row"><strong>Telefon:</strong> ${message.phone}</div>` : ''}
+                        <div class="detail-row">
+                            <strong>Konu:</strong> ${this.getSubjectText(message.subject)}
+                        </div>
+                        <div class="detail-row">
+                            <strong>Tarih:</strong> ${this.formatDate(message.timestamp)}
+                        </div>
+                        <div class="detail-row">
+                            <strong>Durum:</strong> <span class="status-badge ${message.status}">${message.status}</span>
+                        </div>
+                    </div>
+                    <div class="message-text">
+                        <h4>Mesaj:</h4>
+                        <p>${message.message}</p>
+                    </div>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(modal);
+    }
+
+    markAsRead(messageId) {
+        if (window.contactManager) {
+            window.contactManager.updateMessageStatus(messageId, 'read');
+            this.loadMessagesList();
+            this.showNotification('Mesaj okundu olarak işaretlendi!', 'success');
+        }
+    }
+
+    markAsReplied(messageId) {
+        if (window.contactManager) {
+            window.contactManager.updateMessageStatus(messageId, 'replied');
+            this.loadMessagesList();
+            this.showNotification('Mesaj yanıtlandı olarak işaretlendi!', 'success');
+        }
+    }
+
+    deleteMessage(messageId) {
+        if (confirm('Bu mesajı silmek istediğinizden emin misiniz?')) {
+            if (window.contactManager) {
+                window.contactManager.deleteMessage(messageId);
+                this.loadMessagesList();
+                this.showNotification('Mesaj silindi!', 'success');
+            }
+        }
     }
 
     showNotification(message, type = 'info') {
