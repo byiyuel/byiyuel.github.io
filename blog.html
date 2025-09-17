@@ -31,74 +31,124 @@
     </script>
 </head>
 <body>
-    <div class="line"></div>
-    
-    <div id="navbar">
-        <h1><a href="index.html" style="text-decoration: none; color: inherit;">byiyuel</a></h1>
-        
-        <!-- Crypto Prices Widget -->
-        <div class="crypto-navbar">
-            <div class="crypto-item">
-                <span class="crypto-symbol">₿</span>
-                <span class="crypto-price" id="btc-price">$--</span>
+    <!-- Blog Header -->
+    <header class="blog-header">
+        <div class="blog-nav">
+            <div class="blog-logo">
+                <a href="index.html">byiyuel</a>
             </div>
-            <div class="crypto-item">
-                <span class="crypto-symbol">Ξ</span>
-                <span class="crypto-price" id="eth-price">$--</span>
-            </div>
-            <div class="crypto-item">
-                <span class="crypto-symbol">📈</span>
-                <span class="crypto-price" id="bist-price">--</span>
-            </div>
-            <div class="crypto-item">
-                <span class="crypto-symbol">🥇</span>
-                <span class="crypto-price" id="gold-price">$--</span>
-            </div>
+            <nav class="blog-nav-links">
+                <a href="index.html">Ana Sayfa</a>
+                <a href="samples.html">Örnekler</a>
+                <a href="blog.html" class="active">Blog</a>
+            </nav>
         </div>
         
-        <span class="button-list">
-            <a href="index.html#about">Hakkımda</a>
-            <a href="index.html#skills">Yeteneklerim</a>
-            <a href="index.html#projects">Projelerim</a>
-            <a href="index.html#repos">Repolarım</a>
-            <a href="index.html#contact">İletişim</a>
-            <a href="samples.html">Örnekler</a>
-            <a href="blog.html" style="color: #34d399;">Blog</a>
-        </span>
-    </div>
+        <div class="blog-hero">
+            <h1 class="blog-title">📝 Blog</h1>
+            <p class="blog-subtitle">Ekonometri, veri analizi, yazılım geliştirme ve kripto para analizleri</p>
+        </div>
+    </header>
 
-    <div class="center">
-        <div class="flex-container">
-            <div class="profile">
-                <h1 class="title">📝 Blog</h1>
-                <p class="subtitle">Ekonometri, veri analizi, yazılım geliştirme ve kripto para analizleri</p>
-                
-                <!-- Blog Filter -->
-                <div class="blog-filter">
-                    <button class="filter-btn active" data-category="all">Tümü</button>
-                    <button class="filter-btn" data-category="ekonometri">Ekonometri</button>
-                    <button class="filter-btn" data-category="veri-analizi">Veri Analizi</button>
-                    <button class="filter-btn" data-category="yazilim">Yazılım</button>
-                    <button class="filter-btn" data-category="kripto">Kripto</button>
+    <!-- Blog Main Content -->
+    <main class="blog-main">
+        <div class="blog-container">
+            <!-- Sidebar -->
+            <aside class="blog-sidebar">
+                <div class="sidebar-section">
+                    <h3>🔍 Kategoriler</h3>
+                    <div class="category-list">
+                        <button class="category-btn active" data-category="all">
+                            <span class="category-icon">📚</span>
+                            <span class="category-name">Tümü</span>
+                            <span class="category-count" id="count-all">0</span>
+                        </button>
+                        <button class="category-btn" data-category="ekonometri">
+                            <span class="category-icon">📊</span>
+                            <span class="category-name">Ekonometri</span>
+                            <span class="category-count" id="count-ekonometri">0</span>
+                        </button>
+                        <button class="category-btn" data-category="veri-analizi">
+                            <span class="category-icon">📈</span>
+                            <span class="category-name">Veri Analizi</span>
+                            <span class="category-count" id="count-veri-analizi">0</span>
+                        </button>
+                        <button class="category-btn" data-category="yazilim">
+                            <span class="category-icon">💻</span>
+                            <span class="category-name">Yazılım</span>
+                            <span class="category-count" id="count-yazilim">0</span>
+                        </button>
+                        <button class="category-btn" data-category="kripto">
+                            <span class="category-icon">₿</span>
+                            <span class="category-name">Kripto</span>
+                            <span class="category-count" id="count-kripto">0</span>
+                        </button>
+                    </div>
                 </div>
-                
-                <!-- Blog Posts Container -->
-                <div id="blog-posts" class="blog-posts">
+
+                <div class="sidebar-section">
+                    <h3>🔥 Popüler Yazılar</h3>
+                    <div class="popular-posts" id="popular-posts">
+                        <!-- Popular posts will be loaded here -->
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>🏷️ Etiketler</h3>
+                    <div class="tag-cloud" id="tag-cloud">
+                        <!-- Tags will be loaded here -->
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Blog Content -->
+            <section class="blog-content">
+                <!-- Search Bar -->
+                <div class="blog-search">
+                    <div class="search-container">
+                        <input type="text" id="blog-search" placeholder="Blog yazılarında ara...">
+                        <button class="search-btn">🔍</button>
+                    </div>
+                </div>
+
+                <!-- Blog Posts -->
+                <div class="blog-posts-grid" id="blog-posts">
                     <!-- Blog posts will be loaded here -->
                 </div>
-                
-                <!-- Load More Button -->
-                <div class="load-more-container">
-                    <button id="load-more-btn" class="load-more-btn">Daha Fazla Yükle</button>
+
+                <!-- Load More -->
+                <div class="load-more-section">
+                    <button id="load-more-btn" class="load-more-btn">
+                        <span>Daha Fazla Yükle</span>
+                        <div class="loading-spinner" style="display: none;"></div>
+                    </button>
                 </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Blog Footer -->
+    <footer class="blog-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>📝 Blog</h4>
+                <p>Ekonometri, veri analizi ve yazılım geliştirme konularında düzenli olarak yazılar paylaşıyorum.</p>
+            </div>
+            <div class="footer-section">
+                <h4>🔗 Linkler</h4>
+                <a href="index.html">Ana Sayfa</a>
+                <a href="samples.html">Örnekler</a>
+                <a href="https://github.com/byiyuel" target="_blank">GitHub</a>
+            </div>
+            <div class="footer-section">
+                <h4>📧 İletişim</h4>
+                <p>Blog hakkında görüşlerinizi paylaşmak için iletişime geçebilirsiniz.</p>
             </div>
         </div>
-    </div>
-
-    <div class="alt-footer">
-        <a href="https://github.com/byiyuel" target="_blank">Bu website Git-Hub'da açık kaynaklı olarak yayınlanıyor.</a>
-    </div>
-    <div class="line" style="float: bottom"></div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 byiyuel. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
 
     <script src="./static/js/github-profile.js"></script>
     <script src="./static/js/technologies.js"></script>
