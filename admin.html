@@ -7,6 +7,9 @@
     <meta name="description" content="Blog yönetim paneli">
     <link rel="stylesheet" href="./static/scss/style.css">
     <link rel="icon" type="image/x-icon" href="./static/images/favicon.ico">
+    
+    <!-- Quill.js CSS -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 </head>
 <body>
     <div class="line"></div>
@@ -115,24 +118,7 @@
                             
                             <div class="form-group">
                                 <label for="post-content">İçerik:</label>
-                                <div class="editor-toolbar">
-                                    <button type="button" class="editor-btn" data-command="bold" title="Kalın">B</button>
-                                    <button type="button" class="editor-btn" data-command="italic" title="İtalik">I</button>
-                                    <button type="button" class="editor-btn" data-command="underline" title="Altı Çizili">U</button>
-                                    <button type="button" class="editor-btn" data-command="strikeThrough" title="Üstü Çizili">S</button>
-                                    <div class="editor-separator"></div>
-                                    <button type="button" class="editor-btn" data-command="insertUnorderedList" title="Madde İşareti">•</button>
-                                    <button type="button" class="editor-btn" data-command="insertOrderedList" title="Numaralı Liste">1.</button>
-                                    <div class="editor-separator"></div>
-                                    <button type="button" class="editor-btn" data-command="createLink" title="Link Ekle">🔗</button>
-                                    <button type="button" class="editor-btn" data-command="insertImage" title="Resim Ekle">🖼️</button>
-                                    <div class="editor-separator"></div>
-                                    <button type="button" class="editor-btn" data-command="formatBlock" data-value="h2" title="Başlık">H2</button>
-                                    <button type="button" class="editor-btn" data-command="formatBlock" data-value="h3" title="Alt Başlık">H3</button>
-                                    <div class="editor-separator"></div>
-                                    <button type="button" class="editor-btn" data-command="removeFormat" title="Formatı Temizle">🧹</button>
-                                </div>
-                                <div id="post-content" class="rich-editor" contenteditable="true" data-placeholder="Blog yazınızı buraya yazın..."></div>
+                                <div id="quill-editor" style="height: 300px;"></div>
                                 <textarea id="post-content-hidden" name="content" style="display: none;"></textarea>
                             </div>
                             
@@ -197,6 +183,9 @@
     </div>
     <div class="line" style="float: bottom"></div>
 
+    <!-- Quill.js JavaScript -->
+    <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+    
     <script src="./static/js/github-profile.js"></script>
     <script src="./static/js/technologies.js"></script>
     <script src="./static/js/github.js"></script>
@@ -205,7 +194,6 @@
     <script src="./static/js/skill-levels.js"></script>
     <script src="./static/js/contact.js"></script>
     <script src="./static/js/blog.js"></script>
-    <script src="./static/js/rich-editor.js"></script>
     <script src="./static/js/admin.js"></script>
 </body>
 </html>

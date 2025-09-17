@@ -5,6 +5,7 @@ class AdminPanel {
         this.currentUser = null;
         this.securityCode = this.generateSecurityCode();
         this.currentMessageFilter = 'all';
+        this.quill = null;
         this.init();
     }
 
@@ -12,6 +13,41 @@ class AdminPanel {
         this.checkLoginStatus();
         this.setupEventListeners();
         this.updateSecurityCode();
+        this.initQuill();
+    }
+
+    initQuill() {
+        // Initialize Quill editor
+        if (typeof Quill !== 'undefined') {
+            this.quill = new Quill('#quill-editor', {
+                theme: 'snow',
+                placeholder: 'Blog yazınızı buraya yazın...',
+                modules: {
+                    toolbar: [
+                        [{ 'header': [1, 2, 3, false] }],
+                        ['bold', 'italic', 'underline', 'strike'],
+                        [{ 'color': [] }, { 'background': [] }],
+                        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                        [{ 'indent': '-1'}, { 'indent': '+1' }],
+                        ['link', 'image', 'video'],
+                        ['blockquote', 'code-block'],
+                        ['clean']
+                    ]
+                }
+            });
+
+            // Auto-save content to hidden textarea
+            this.quill.on('text-change', () => {
+                this.saveQuillContent();
+            });
+        }
+    }
+
+    saveQuillContent() {
+        const hiddenTextarea = document.getElementById('post-content-hidden');
+        if (hiddenTextarea && this.quill) {
+            hiddenTextarea.value = this.quill.root.innerHTML;
+        }
     }
 
     generateSecurityCode() {
@@ -146,7 +182,7 @@ class AdminPanel {
             title: formData.get('title'),
             category: formData.get('category'),
             excerpt: formData.get('excerpt'),
-            content: richEditor ? richEditor.getContent() : formData.get('content'),
+            content: this.quill ? this.quill.root.innerHTML : formData.get('content'),
             tags: formData.get('tags').split(',').map(tag => tag.trim()).filter(tag => tag),
             image: formData.get('image') || 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800'
         };
@@ -261,11 +297,10 @@ class AdminPanel {
         document.getElementById('post-category').value = post.category;
         document.getElementById('post-excerpt').value = post.excerpt;
         
-        // Set content in rich editor
-        if (richEditor) {
-            richEditor.setContent(post.content);
-        } else {
-            document.getElementById('post-content').value = post.content;
+        // Set content in Quill editor
+        if (this.quill) {
+            this.quill.root.innerHTML = post.content;
+            this.saveQuillContent();
         }
         
         document.getElementById('post-tags').value = post.tags.join(', ');
@@ -330,9 +365,10 @@ class AdminPanel {
     resetForm() {
         document.getElementById('add-post-form').reset();
         
-        // Clear rich editor
-        if (richEditor) {
-            richEditor.clear();
+        // Clear Quill editor
+        if (this.quill) {
+            this.quill.setContents([]);
+            this.saveQuillContent();
         }
         
         const formTitle = document.querySelector('.admin-section h4');
