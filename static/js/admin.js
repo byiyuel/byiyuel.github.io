@@ -146,7 +146,7 @@ class AdminPanel {
             title: formData.get('title'),
             category: formData.get('category'),
             excerpt: formData.get('excerpt'),
-            content: formData.get('content'),
+            content: richEditor ? richEditor.getContent() : formData.get('content'),
             tags: formData.get('tags').split(',').map(tag => tag.trim()).filter(tag => tag),
             image: formData.get('image') || 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800'
         };
@@ -256,13 +256,20 @@ class AdminPanel {
         const post = posts.find(p => p.id === postId);
         
         if (post) {
-            // Fill form with existing data
-            document.getElementById('post-title').value = post.title;
-            document.getElementById('post-category').value = post.category;
-            document.getElementById('post-excerpt').value = post.excerpt;
+        // Fill form with existing data
+        document.getElementById('post-title').value = post.title;
+        document.getElementById('post-category').value = post.category;
+        document.getElementById('post-excerpt').value = post.excerpt;
+        
+        // Set content in rich editor
+        if (richEditor) {
+            richEditor.setContent(post.content);
+        } else {
             document.getElementById('post-content').value = post.content;
-            document.getElementById('post-tags').value = post.tags.join(', ');
-            document.getElementById('post-image').value = post.image;
+        }
+        
+        document.getElementById('post-tags').value = post.tags.join(', ');
+        document.getElementById('post-image').value = post.image;
 
             // Scroll to form
             document.getElementById('add-post-form').scrollIntoView({ behavior: 'smooth' });
@@ -322,6 +329,12 @@ class AdminPanel {
 
     resetForm() {
         document.getElementById('add-post-form').reset();
+        
+        // Clear rich editor
+        if (richEditor) {
+            richEditor.clear();
+        }
+        
         const formTitle = document.querySelector('.admin-section h4');
         formTitle.textContent = '📝 Yeni Blog Yazısı Ekle';
         const submitBtn = document.querySelector('#add-post-form button[type="submit"]');

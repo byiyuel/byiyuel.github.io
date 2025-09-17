@@ -3210,3 +3210,260 @@ hr {
     text-align: center;
   }
 }
+
+/* Rich Text Editor Styles */
+.editor-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+  padding: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.editor-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e2e8f0;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+  min-width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.editor-btn:hover {
+  background: rgba(52, 211, 153, 0.1);
+  border-color: rgba(52, 211, 153, 0.3);
+  color: #34d399;
+}
+
+.editor-btn.active {
+  background: rgba(52, 211, 153, 0.2);
+  border-color: rgba(52, 211, 153, 0.4);
+  color: #34d399;
+}
+
+.editor-separator {
+  width: 1px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 0 0.5rem;
+}
+
+.rich-editor {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0 0 8px 8px;
+  padding: 1rem;
+  color: #f8fafc;
+  font-size: 1rem;
+  line-height: 1.6;
+  min-height: 300px;
+  max-height: 500px;
+  overflow-y: auto;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.rich-editor:focus {
+  border-color: #34d399;
+  box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.1);
+}
+
+.rich-editor:empty:before {
+  content: attr(data-placeholder);
+  color: #64748b;
+  font-style: italic;
+}
+
+.rich-editor h2 {
+  color: #f8fafc;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 1.5rem 0 1rem 0;
+  line-height: 1.3;
+}
+
+.rich-editor h3 {
+  color: #f8fafc;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 1.25rem 0 0.75rem 0;
+  line-height: 1.3;
+}
+
+.rich-editor p {
+  margin: 0 0 1rem 0;
+  line-height: 1.6;
+}
+
+.rich-editor ul,
+.rich-editor ol {
+  margin: 1rem 0;
+  padding-left: 2rem;
+}
+
+.rich-editor li {
+  margin: 0.5rem 0;
+  line-height: 1.6;
+}
+
+.rich-editor a {
+  color: #34d399;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.rich-editor a:hover {
+  color: #10b981;
+}
+
+.rich-editor img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.rich-editor strong {
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.rich-editor em {
+  font-style: italic;
+}
+
+.rich-editor u {
+  text-decoration: underline;
+}
+
+.rich-editor s {
+  text-decoration: line-through;
+}
+
+/* Editor Modal for Links and Images */
+.editor-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.editor-modal-content {
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 500px;
+  width: 100%;
+}
+
+.editor-modal h3 {
+  color: #f8fafc;
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+}
+
+.editor-modal .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.editor-modal .form-group label {
+  color: #f8fafc;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.editor-modal .form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #f8fafc;
+  font-size: 1rem;
+}
+
+.editor-modal .form-group input:focus {
+  outline: none;
+  border-color: #34d399;
+  box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.1);
+}
+
+.editor-modal-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.editor-modal-btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.editor-modal-btn.primary {
+  background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+  color: #000;
+}
+
+.editor-modal-btn.secondary {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #f8fafc;
+}
+
+.editor-modal-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Responsive Editor */
+@media only screen and (max-width: 768px) {
+  .editor-toolbar {
+    gap: 0.25rem;
+    padding: 0.5rem;
+  }
+  
+  .editor-btn {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+    min-width: 28px;
+    height: 28px;
+  }
+  
+  .editor-separator {
+    margin: 0 0.25rem;
+  }
+  
+  .rich-editor {
+    padding: 0.75rem;
+    min-height: 250px;
+  }
+  
+  .editor-modal-content {
+    padding: 1rem;
+  }
+}
