@@ -163,8 +163,38 @@ class AdminPanel {
             this.showNotification('Blog yazısı başarıyla eklendi!', 'success');
             document.getElementById('add-post-form').reset();
         } else {
-            this.showNotification('Blog yöneticisi bulunamadı!', 'error');
+            // Fallback: Save directly to localStorage
+            this.savePostDirectly(postData);
+            this.showNotification('Blog yazısı başarıyla eklendi!', 'success');
+            document.getElementById('add-post-form').reset();
         }
+    }
+
+    savePostDirectly(postData) {
+        // Get existing posts from localStorage
+        let posts = [];
+        const savedPosts = localStorage.getItem('blogPosts');
+        if (savedPosts) {
+            posts = JSON.parse(savedPosts);
+        }
+
+        // Create new post
+        const newPost = {
+            id: Date.now(),
+            ...postData,
+            date: new Date().toISOString().split('T')[0],
+            author: "Baran Yılmaz Yücel",
+            image: postData.image || 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800'
+        };
+
+        // Add to beginning of array
+        posts.unshift(newPost);
+
+        // Save back to localStorage
+        localStorage.setItem('blogPosts', JSON.stringify(posts));
+
+        // Reload posts list
+        this.loadPostsList();
     }
 
     loadPostsList() {
@@ -201,8 +231,24 @@ class AdminPanel {
                 window.blogManager.deletePost(postId);
                 this.loadPostsList();
                 this.showNotification('Yazı silindi!', 'success');
+            } else {
+                // Fallback: Delete directly from localStorage
+                this.deletePostDirectly(postId);
+                this.loadPostsList();
+                this.showNotification('Yazı silindi!', 'success');
             }
         }
+    }
+
+    deletePostDirectly(postId) {
+        let posts = [];
+        const savedPosts = localStorage.getItem('blogPosts');
+        if (savedPosts) {
+            posts = JSON.parse(savedPosts);
+        }
+
+        posts = posts.filter(post => post.id !== postId);
+        localStorage.setItem('blogPosts', JSON.stringify(posts));
     }
 
     editPost(postId) {
@@ -251,6 +297,26 @@ class AdminPanel {
             this.showNotification('Yazı güncellendi!', 'success');
             this.loadPostsList();
             this.resetForm();
+        } else {
+            // Fallback: Update directly in localStorage
+            this.updatePostDirectly(postId, updatedData);
+            this.showNotification('Yazı güncellendi!', 'success');
+            this.loadPostsList();
+            this.resetForm();
+        }
+    }
+
+    updatePostDirectly(postId, updatedData) {
+        let posts = [];
+        const savedPosts = localStorage.getItem('blogPosts');
+        if (savedPosts) {
+            posts = JSON.parse(savedPosts);
+        }
+
+        const index = posts.findIndex(post => post.id === postId);
+        if (index !== -1) {
+            posts[index] = { ...posts[index], ...updatedData };
+            localStorage.setItem('blogPosts', JSON.stringify(posts));
         }
     }
 
