@@ -159,3 +159,4 @@ let contactManager;
 document.addEventListener('DOMContentLoaded', () => {
     contactManager = new ContactManager();
 });
+
