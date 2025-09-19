@@ -3648,6 +3648,55 @@ hr {
   margin: 1rem 0;
 }
 
+.post-content-full pre {
+  background: rgba(15, 20, 25, 0.9);
+  border: 1px solid rgba(52, 211, 153, 0.2);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  font-family: 'Courier New', 'Monaco', monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.post-content-full pre code {
+  background: none;
+  padding: 0;
+  color: #34d399;
+  font-family: inherit;
+}
+
+.post-content-full code {
+  background: rgba(52, 211, 153, 0.1);
+  color: #34d399;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-family: 'Courier New', 'Monaco', monospace;
+  font-size: 0.9rem;
+}
+
+.post-content-full ul,
+.post-content-full ol {
+  margin: 1rem 0;
+  padding-left: 2rem;
+}
+
+.post-content-full li {
+  margin: 0.5rem 0;
+  line-height: 1.6;
+}
+
+.post-content-full strong {
+  color: #34d399;
+  font-weight: 600;
+}
+
+.post-content-full em {
+  color: #94a3b8;
+  font-style: italic;
+}
+
 /* Admin Panel Styles */
 .admin-login {
   display: flex;
