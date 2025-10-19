@@ -62,73 +62,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Contact form handling
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-            
-            // Simple validation
-            if (!data.name || !data.email || !data.subject || !data.message) {
-                alert('Lütfen tüm alanları doldurun.');
-                return;
-            }
-            
-            // Simulate form submission
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            
-            submitBtn.textContent = 'Gönderiliyor...';
-            submitBtn.disabled = true;
-            
-            setTimeout(() => {
-                alert('Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağım.');
-                this.reset();
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }, 2000);
-        });
-    }
+    // Contact form handled by contact.js - removed duplicate
     
-    // Parallax effect for hero section
+    // Parallax effect for hero section (subtle)
+    let lastScrollTop = 0;
     window.addEventListener('scroll', () => {
         const scrolled = window.pageYOffset;
         const heroSection = document.querySelector('.hero-section');
         
-        if (heroSection) {
-            const rate = scrolled * -0.5;
+        if (heroSection && scrolled < window.innerHeight) {
+            const rate = scrolled * -0.2; // Reduced rate for smoother effect
             heroSection.style.transform = `translateY(${rate}px)`;
         }
+        lastScrollTop = scrolled;
     });
-    
-    // Typing effect for hero title
-    function typeWriter(element, text, speed = 100) {
-        let i = 0;
-        element.innerHTML = '';
-        
-        function type() {
-            if (i < text.length) {
-                element.innerHTML += text.charAt(i);
-                i++;
-                setTimeout(type, speed);
-            }
-        }
-        
-        type();
-    }
-    
-    // Initialize typing effect
-    const heroTitle = document.querySelector('.hero-title');
-    if (heroTitle) {
-        const originalText = heroTitle.textContent;
-        setTimeout(() => {
-            typeWriter(heroTitle, originalText, 50);
-        }, 1000);
-    }
     
     // Add loading animation
     window.addEventListener('load', () => {
@@ -242,15 +189,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         .particle {
             animation: float 15s linear infinite;
-        }
-        
-        body.loaded .hero-section {
-            opacity: 1;
-        }
-        
-        .hero-section {
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
         }
     `;
     document.head.appendChild(style);

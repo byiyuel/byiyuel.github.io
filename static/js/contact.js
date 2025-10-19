@@ -13,7 +13,12 @@ class ContactManager {
     setupEventListeners() {
         const contactForm = document.getElementById('contactForm');
         if (contactForm) {
-            contactForm.addEventListener('submit', (e) => {
+            // Remove any existing event listeners
+            const newForm = contactForm.cloneNode(true);
+            contactForm.parentNode.replaceChild(newForm, contactForm);
+            
+            // Add new event listener
+            newForm.addEventListener('submit', (e) => {
                 e.preventDefault();
                 this.handleSubmit();
             });
