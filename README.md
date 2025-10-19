@@ -18,10 +18,6 @@ Bu proje, modern web teknolojileri kullanılarak geliştirilmiş kişisel portfo
 - ⚡ **Hızlı**: Optimize edilmiş performans
 - 🌙 **Dark Theme**: Göz yormayan koyu tema
 - 🎭 **Animasyonlar**: Smooth geçişler ve hover efektleri
-- 📝 **Blog Sistemi**: Kategorize edilmiş blog yazıları
-- 🔐 **Admin Panel**: Blog yönetimi ve mesaj takibi
-- 💬 **İletişim Formu**: Dinamik mesaj sistemi
-- 📊 **Kripto Widget**: Gerçek zamanlı kripto para fiyatları
 
 ## 🚀 Teknolojiler
 
@@ -46,9 +42,6 @@ Bu proje, modern web teknolojileri kullanılarak geliştirilmiş kişisel portfo
 ```
 byiyuel.github.io/
 ├── 📄 index.html              # Ana HTML dosyası
-├── 📄 blog.html               # Blog sayfası
-├── 📄 admin.html              # Admin paneli
-├── 📄 samples.html            # Çalışma örnekleri
 ├── 📄 CNAME                   # Custom domain
 ├── 📄 README.md               # Proje dokümantasyonu
 ├── 📁 static/
@@ -59,11 +52,7 @@ byiyuel.github.io/
 │   ├── 📁 js/                 # JavaScript dosyaları
 │   │   ├── 🔧 github.js       # Repo listesi
 │   │   ├── 👤 github-profile.js # Profil verileri
-│   │   ├── 🛠️ technologies.js  # Teknoloji listesi
-│   │   ├── 📝 blog.js         # Blog yönetimi
-│   │   ├── 🔐 admin.js        # Admin paneli
-│   │   ├── 💬 contact.js      # İletişim formu
-│   │   └── 📊 crypto-widget.js # Kripto widget
+│   │   └── 🛠️ technologies.js  # Teknoloji listesi
 │   └── 📁 scss/               # Stil dosyaları
 │       ├── 🎨 style.scss      # Ana stil dosyası
 │       └── 🎨 style.css       # Derlenmiş CSS
@@ -95,38 +84,6 @@ byiyuel.github.io/
    // static/js/github-profile.js dosyasında
    const GITHUB_USERNAME = 'your-username'; // Kendi GitHub kullanıcı adınızı yazın
    ```
-
-4. **Admin Panel Erişimi**
-   - URL: `https://your-domain.com/admin.html`
-   - Kullanıcı Adı: `admin`
-   - Şifre: `admin123`
-   - Güvenlik Kodu: Sayfada görüntülenen 4 haneli kod
-
-## 🆕 Yeni Özellikler
-
-### 📝 Blog Sistemi
-- **Kategorize Edilmiş Yazılar**: Ekonometri, Veri Analizi, Yazılım, Kripto
-- **Filtreleme**: Kategori bazında yazı filtreleme
-- **Modal Görüntüleme**: Tam ekran yazı okuma deneyimi
-- **Responsive Tasarım**: Mobil uyumlu blog kartları
-
-### 🔐 Admin Panel
-- **Güvenli Giriş**: Kullanıcı adı, şifre ve güvenlik kodu
-- **Blog Yönetimi**: Yazı ekleme, düzenleme ve silme
-- **Rich Text Editor**: Quill.js ile zengin metin editörü
-- **Mesaj Takibi**: İletişim formu mesajlarını yönetme
-- **İstatistikler**: Mesaj durumları ve sayıları
-
-### 💬 İletişim Sistemi
-- **Dinamik Form**: Gerçek zamanlı validasyon
-- **Mesaj Kategorileri**: Proje teklifi, işbirliği, soru vb.
-- **Durum Takibi**: Yeni, okundu, yanıtlandı durumları
-- **LocalStorage**: Mesajların tarayıcıda saklanması
-
-### 📊 Kripto Widget
-- **Gerçek Zamanlı Fiyatlar**: Bitcoin, Ethereum, BIST, Altın
-- **Navbar Entegrasyonu**: Her sayfada görünür
-- **Otomatik Güncelleme**: 30 saniyede bir güncelleme
 
 ## 🎨 Özelleştirme
 
